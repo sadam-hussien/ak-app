@@ -1,0 +1,24 @@
+.authContent {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--space-lg) var(--space-md) ;
+}
+
+.title {
+  margin-bottom: var(--space-md);
+}
+
+.titleInner {
+  color: var(--main-color);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.account {
+  margin-top: var(--space-lg);
+  text-transform: capitalize;
+}
+
+.account a {
+  color: var(--main-color);
+}

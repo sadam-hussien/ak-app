@@ -1,0 +1,17 @@
+.welcome {
+  margin-bottom: var(--space-md);
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.infoBox:not(:last-child) {
+  margin-bottom: var(--space-sm);
+}
+
+.infoBox {
+  color: var(--main-color);
+}
+
+.infolabel {
+  margin-right: 5px;
+}

@@ -1,0 +1,66 @@
+:root {
+  --font: 'Roboto', sans-serif;
+  --font-size: 16px;
+  --font-size-sm: 14px;
+  --font-size-md: 18px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 40px;
+
+  --main-color: #333;
+  --text-color: #555;
+  --bg-dark-color: #495057;
+  --bg-el-color: #4f4f4f;
+  --border-color: #999;
+  --inp-border-color: #555;
+  --sidebar-border-color: #999;
+  --link-bg-color: #888;
+
+  --header-height: 70px;
+  --sidebar-width: 300px;
+  --radius: 10px;
+  --inp-height: 49px;
+}
+
+body {
+  color: var(--text-color);
+  font-size: var(--font-size);
+  font-family: var(--font);
+  padding-top: var(--header-height);
+}
+
+
+a:hover,
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: initial;
+}
+
+
+.p-t {
+  padding-top: var(--space-lg);
+}
+
+.p-b {
+  padding-bottom: var(--space-lg);
+}
+
+.p-l {
+  padding-left: var(--space-md);
+}
+
+.p-r {
+  padding-right: var(--space-md);
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  transition: .3s;
+}
+.page-content {
+  transition: .3s;
+  width: calc(100% - var(--sidebar-width));
+}
