@@ -6,6 +6,7 @@ import { Store, action_logout } from "../../store";
 
 import { AlertToast } from "../../components/global";
 
+// api
 import { server_logout } from "../../server/auth";
 
 import styles from "../../styles/layout/user.module.css";
@@ -17,10 +18,13 @@ export default function User() {
 
   // logout
   const handleLogOut = () => {
-    server_logout().then((res) => {
-      authDispatch(action_logout());
-      AlertToast("success", "you are logged out!");
-    });
+    // request /
+    authDispatch(action_logout());
+    AlertToast("success", "you are logged out!");
+    // server_logout().then((res) => {
+    //   authDispatch(action_logout());
+    //   AlertToast("success", "you are logged out!");
+    // });
   };
 
   // handle active link
