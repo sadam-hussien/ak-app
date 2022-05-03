@@ -1,22 +1,27 @@
 .authContent {
-  border: 1px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: var(--radius);
-  padding: var(--space-lg) var(--space-md) ;
+  max-width: 600px;
+  padding: 65px 40px;
+  margin: 90px auto;
 }
 
 .title {
-  margin-bottom: var(--space-md);
+  margin-bottom: 28px;
 }
 
 .titleInner {
   color: var(--main-color);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: var(--space-sm);
+  font-size: 1.6rem;
 }
 
 .account {
   margin-top: var(--space-lg);
   text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .account a {

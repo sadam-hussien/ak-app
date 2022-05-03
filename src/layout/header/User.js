@@ -61,7 +61,7 @@ export default function User() {
               <ion-icon name="person-outline"></ion-icon>
             </span>
           )}
-          <span>{user.name}</span>
+          {/* <span>{user.name}</span> */}
         </button>
         <ul
           className={`dropdown-menu ${styles.profileMenu}`}

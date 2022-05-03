@@ -12,7 +12,7 @@ export default function Logo() {
         alt="logo"
         className="img-fluid"
       /> */}
-      logo
+      akaike
     </Link>
   );
 }

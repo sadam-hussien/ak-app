@@ -10,9 +10,9 @@ import styles from "../styles/auth/index.module.css";
 
 export default function Login() {
   return (
-    <section className={`page p-t p-b p-l p-r`}>
+    <section className={`page  p-l p-r`}>
       <div className="row justify-content-center">
-        <div className="col-md-8 col-lg-6">
+        <div className="">
           <div className={`${styles.authContent}`}>
             <Title
               title="sign into app"

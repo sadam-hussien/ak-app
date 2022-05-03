@@ -4,3 +4,13 @@
   box-shadow: 0 8px 10px rgba(0 0 0 / .2);
   
 }
+
+.logo {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--bs-white);
+}
+
+.logo:hover {
+  color: var(--bs-white);
+}

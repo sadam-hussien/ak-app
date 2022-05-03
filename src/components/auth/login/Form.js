@@ -87,6 +87,7 @@ export default function LoginForm() {
             type="password"
             placeholder="enter password"
           />
+
           <CheckField name="agree" label="i agree with terms and policies." />
           <Btn type="submit" label="login" loading={loading} />
         </Form>

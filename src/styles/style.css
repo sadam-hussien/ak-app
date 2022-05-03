@@ -11,15 +11,15 @@
   --text-color: #555;
   --bg-dark-color: #495057;
   --bg-el-color: #4f4f4f;
-  --border-color: #999;
-  --inp-border-color: #555;
+  --border-color: #dedede;
+  --inp-border-color: #dedede;
   --sidebar-border-color: #999;
-  --link-bg-color: #888;
+  --link-bg-color: #f3f3f3;
 
   --header-height: 70px;
   --sidebar-width: 300px;
   --radius: 10px;
-  --inp-height: 49px;
+  --inp-height: 65px;
 }
 
 body {

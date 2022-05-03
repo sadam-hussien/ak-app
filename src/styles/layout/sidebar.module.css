@@ -8,7 +8,8 @@
   overflow-x: hidden;
   transition: 0.3s;
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .toggleSidebar {
