@@ -69,7 +69,15 @@ export default function RegisterForm() {
             type="password"
             placeholder="enter password"
           />
-          <CheckField name="agree" label="i agree with terms and policies." />
+          <CheckField
+            name="agree"
+            label={
+              <span>
+                i agree with <span style={{ fontWeight: "bold" }}>terms</span>{" "}
+                and <span style={{ fontWeight: "bold" }}>policies</span>.
+              </span>
+            }
+          />
           <Btn type="submit" label="sign up" loading={loading} />
         </Form>
       )}

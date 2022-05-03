@@ -33,22 +33,22 @@
 
 .input::-moz-placeholder {
   text-transform: capitalize;
-  font-size: var(--font-size-sm);
+  font-size: 1.4rem;
 }
 
 .input:-ms-input-placeholder {
-  text-transform: capitalize;
-  font-size: var(--font-size-sm);
+  text-transform: capitalize;  font-size: 1.4rem;
+
 }
 
 .input::-ms-input-placeholder {
-  text-transform: capitalize;
-  font-size: var(--font-size-sm);
+  text-transform: capitalize;  font-size: 1.4rem;
+
 }
 
 .input::placeholder {
-  text-transform: capitalize;
-  font-size: var(--font-size-sm);
+  text-transform: capitalize;  font-size: 1.4rem;
+
 }
 
 .input:focus {
