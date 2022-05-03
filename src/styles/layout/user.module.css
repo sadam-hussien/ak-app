@@ -12,11 +12,11 @@
 
 .profileBtn::after {
   /* color: var(--text-color); */
-  opacity: .5;
+  opacity: 0.5;
   margin-left: var(--space-sm);
   margin-bottom: -3px;
+  margin-left: -2px;
 }
-
 
 .profileMenu {
   background: var(--bs-white);
@@ -45,7 +45,7 @@
 }
 
 .lastName {
- margin-left: var(--space-sm);
+  margin-left: var(--space-sm);
 }
 
 .profileImg {

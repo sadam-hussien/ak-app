@@ -2,6 +2,8 @@ import React from "react";
 
 import Navbar from "../Navbar";
 
+import { NavLink } from "react-router-dom";
+
 import styles from "../../styles/layout/sidebar.module.css";
 
 export default function SideBar() {
@@ -9,9 +11,9 @@ export default function SideBar() {
     <aside className={`${styles.sidebar}`}>
       <div className="container h-100">
         <div className={`h-100 d-flex flex-column ${styles.sidebarContent}`}>
-          <button type="button" className={`${styles.toggleSidebar}`}>
+          <NavLink to="/" className={`${styles.toggleSidebar}`}>
             <ion-icon name="arrow-back-circle-outline"></ion-icon>
-          </button>
+          </NavLink>
           <Navbar />
         </div>
       </div>

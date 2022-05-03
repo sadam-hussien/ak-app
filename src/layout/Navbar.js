@@ -8,20 +8,26 @@ const links = [
   {
     link: "datasets",
     icon: <ion-icon name="layers-outline"></ion-icon>,
-    subLinks: ["my datasets", "public datasets"],
+    subLinks: [
+      { label: "my datasets", url: "/data1" },
+      { label: "public datasets", url: "/data2" },
+    ],
   },
   {
     link: "models",
     icon: <ion-icon name="analytics-outline"></ion-icon>,
-    subLinks: ["my models", "public models"],
+    subLinks: [
+      { label: "my models", url: "/data99" },
+      { label: "public models", url: "/data3" },
+    ],
   },
   {
     link: "learning resources",
     icon: <ion-icon name="book-outline"></ion-icon>,
     subLinks: [
-      "youtube videos",
-      "frequentely asked question",
-      "knowlodge base",
+      { label: "youtube videos", url: "/data9" },
+      { label: "frequentely asked question", url: "/data4" },
+      { label: "knowlodge base", url: "data5" },
     ],
   },
 ];
@@ -50,9 +56,18 @@ export default function Navbar() {
             </span>
             <ul className={`list-unstyled m-0 ${styles.linksInner}`}>
               {item.subLinks.map((i, idx) => (
-                <li key={idx} className={`${styles.linkItemInner}`}>
-                  {i}
-                </li>
+                <NavLink
+                  to={i.url}
+                  key={idx}
+                  // className={`${styles.linkItemInner}`}
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${styles.activeLink} ${styles.linkItemInner}`
+                      : styles.linkItemInner
+                  }
+                >
+                  {i.label}
+                </NavLink>
               ))}
             </ul>
           </li>

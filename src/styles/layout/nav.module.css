@@ -1,29 +1,38 @@
 .link {
   display: flex;
   align-items: center;
-  padding: 15px var(--space-md);
-  font-weight: 500;
-    color: var(--main-color);
-  cursor: pointer;
+  padding: 5px var(--space-md);
+  font-weight: 700;
+  color: #000;
+  font-size: 1.4rem;
 }
 
 .link .icon {
   margin-right: var(--space-sm);
+  font-size: 2rem;
+  color: rgb(83, 83, 83);
 }
 
-.link.activeLink {
+.activeLink {
   background-color: var(--link-bg-color);
 }
 
 .linksInner {
-  padding-left: 45px;
+  font-size: 1.1rem;
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
 }
 
 .linkItemInner {
-  color: var(--text-color);
+  color: #000;
+  display: block;
+  padding: 16px 0 16px 62px;
   cursor: pointer;
 }
-
-.linkItemInner:not(:last-child) {
-  margin-bottom: 15px;
+.linkItemInner:hover {
+  background-color: var(--link-bg-color);
 }
+/* .linkItemInner {
+  margin: 10px 0;
+  padding: 5px 0;
+} */

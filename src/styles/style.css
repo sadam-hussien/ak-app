@@ -1,5 +1,5 @@
 :root {
-  --font: 'Roboto', sans-serif;
+  --font: "Roboto", sans-serif;
   --font-size: 16px;
   --font-size-sm: 14px;
   --font-size-md: 18px;
@@ -7,17 +7,17 @@
   --space-md: 20px;
   --space-lg: 40px;
 
-  --main-color: #333;
+  --main-color: rgb(83, 83, 83);
   --text-color: #555;
   --bg-dark-color: #495057;
-  --bg-el-color: #4f4f4f;
+  --bg-el-color: #5c5c5c;
   --border-color: #dedede;
   --inp-border-color: #dedede;
   --sidebar-border-color: #999;
   --link-bg-color: #f3f3f3;
 
   --header-height: 70px;
-  --sidebar-width: 300px;
+  --sidebar-width: 350px;
   --radius: 10px;
   --inp-height: 65px;
 }
@@ -29,7 +29,6 @@ body {
   padding-top: var(--header-height);
 }
 
-
 a:hover,
 a {
   text-decoration: none;
@@ -39,28 +38,27 @@ a:hover {
   color: initial;
 }
 
-
-.p-t {
+/* .p-t {
   padding-top: var(--space-lg);
-}
+} */
 
-.p-b {
+/* .p-b {
   padding-bottom: var(--space-lg);
-}
+} */
 
 .p-l {
-  padding-left: var(--space-md);
+  padding-left: 40px;
 }
 
-.p-r {
+/* .p-r {
   padding-right: var(--space-md);
-}
+} */
 
 .sidebar {
   width: var(--sidebar-width);
-  transition: .3s;
+  transition: 0.3s;
 }
 .page-content {
-  transition: .3s;
+  transition: 0.3s;
   width: calc(100% - var(--sidebar-width));
 }

@@ -44,7 +44,7 @@ export default function LoginForm() {
       authDispatch(
         action_login({
           token: "1dlkjfdkfjdfj",
-          user: { name: "mahmoud hussien" },
+          user: { name: "Rahul" },
         })
       );
       console.log(values);
@@ -92,8 +92,8 @@ export default function LoginForm() {
             name="agree"
             label={
               <span>
-                i agree with <span style={{ fontWeight: "bold" }}>terms</span>{" "}
-                and <span style={{ fontWeight: "bold" }}>policies</span>.
+                i agree with <span style={{ fontWeight: "500" }}>terms</span>{" "}
+                and <span style={{ fontWeight: "500" }}>policies</span>.
               </span>
             }
           />

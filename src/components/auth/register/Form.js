@@ -73,8 +73,8 @@ export default function RegisterForm() {
             name="agree"
             label={
               <span>
-                i agree with <span style={{ fontWeight: "bold" }}>terms</span>{" "}
-                and <span style={{ fontWeight: "bold" }}>policies</span>.
+                i agree with <span style={{ fontWeight: "500" }}>terms</span>{" "}
+                and <span style={{ fontWeight: "500" }}>policies</span>.
               </span>
             }
           />

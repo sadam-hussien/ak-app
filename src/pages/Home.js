@@ -37,11 +37,8 @@ export default function Home() {
           key={index}
         >
           <h5 className={`text-capitalize ${styles.infolabel}`}>
-            {item.label}:
+            {item.label}: {item.value}
           </h5>
-          <h6 className={`text-capitalize ${styles.infovalue}`}>
-            {item.value}
-          </h6>
         </div>
       ))}
     </section>
