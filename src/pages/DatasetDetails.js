@@ -49,7 +49,7 @@ export default function DatasetDetails() {
             </h5>
             <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
               {item.tags.map((tag, index) => (
-                <span key={index}>
+                <span key={index} style={{ textDecoration: "underline" }}>
                   {tag} {item.tags.length - 1 === index ? "" : ", "}
                 </span>
               ))}
@@ -80,7 +80,11 @@ export default function DatasetDetails() {
           </div>
         </div>
         <div className="col-6">
-          <div className={`${styles.datasetImgDetails}`}></div>
+          <div className={`${styles.datasetImgDetails} position-relative`}>
+            <h5 className={`${styles.datasetImgTitle} text-capitalize`}>
+              dataset display image
+            </h5>
+          </div>
         </div>
       </div>
 

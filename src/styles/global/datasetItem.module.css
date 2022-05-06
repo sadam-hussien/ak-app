@@ -27,3 +27,24 @@
   display: inline-flex !important;
   margin-top: var(--space-md);
 }
+
+.datasetList {
+  background-color: transparent;
+  position: absolute;
+  z-index: 9;
+  right: var(--space-md);
+  top: var(--space-md);
+}
+
+.datasetList::after {
+  display: none;
+}
+
+.datasetList span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #4f4f4f;
+  display: block;
+  margin-bottom: 3px;
+}

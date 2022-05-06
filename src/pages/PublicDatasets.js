@@ -11,7 +11,7 @@ export default function PublicDatasets() {
 
       {/* items  */}
       <div className="row g-5 ">
-        {datasets.map((item) => (
+        {datasets.slice(0, 3).map((item) => (
           <div key={item.id} className="col-4">
             <DatasetItem data={item} />
           </div>
