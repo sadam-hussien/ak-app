@@ -1,17 +1,18 @@
 import React, { createContext, useReducer, useEffect } from "react";
 
-import { authState } from "./state";
+import { authState, globalState } from "./state";
 
-import { authReducer } from "./reducers";
+import globalReducer, { authReducer } from "./reducers";
 
 // actions
-import { action_login, action_logout } from "./actions";
-export { action_login, action_logout };
+import { action_login, action_logout, action_toggle_modal } from "./actions";
+export { action_login, action_logout, action_toggle_modal };
 // *****
 
 export const Store = createContext();
 
 export function Provider({ children }) {
+  const [globalStore, globalDispatch] = useReducer(globalReducer, globalState);
   // auth
   const [authStore, authDispatch] = useReducer(authReducer, authState());
 
@@ -24,6 +25,8 @@ export function Provider({ children }) {
   return (
     <Store.Provider
       value={{
+        globalStore,
+        globalDispatch,
         authStore,
         authDispatch,
       }}

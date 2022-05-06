@@ -11,13 +11,16 @@ export default function Btn({
   icon,
   style,
   iconStyle,
+  customeClass,
 }) {
   return (
     <button
       style={style}
       disabled={disabled}
       type={type ? type : "button"}
-      className={`${styles.btn} text-capitalize`}
+      className={`${styles.btn} text-capitalize ${
+        customeClass ? customeClass : ""
+      }`}
       onClick={callback ? () => callback() : null}
     >
       {loading ? (

@@ -1,10 +1,11 @@
 .authContent {
-  border: 3px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius);
-  max-width: 600px;
-  padding: 55px 40px;
-  margin: 90px auto;
-  min-height: 690px;
+    margin: 65px auto 0;
+    max-width: 410px;
+    min-height: 537px;
+    padding: 44px 30px;
+
 }
 
 .title {
@@ -15,14 +16,16 @@
   color: var(--main-color);
   font-weight: 600;
   margin-bottom: var(--space-sm);
-  font-size: 1.55rem;
+  font-size: 1.15rem;
 }
-
+.subTitleInner {
+  font-size: 0.8rem;
+}
 .account {
   margin-top: var(--space-lg);
   margin-bottom: 1.5rem;
   text-transform: capitalize;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 400;
 }
 

@@ -4,4 +4,10 @@ import Login from "./Login";
 
 import Register from "./Register";
 
-export { Home, Login, Register };
+import Datasets from "./Datasets";
+
+import DatasetDetails from "./DatasetDetails";
+
+import PublicDatasets from "./PublicDatasets";
+
+export { Home, Login, Register, DatasetDetails, Datasets, PublicDatasets };

@@ -1,4 +1,4 @@
-import { LOG_IN, LOG_OUT } from "./types";
+import { LOG_IN, LOG_OUT, TOGGLE_MODAL } from "./types";
 
 export function action_login(data) {
   return {
@@ -10,5 +10,12 @@ export function action_login(data) {
 export function action_logout() {
   return {
     type: LOG_OUT,
+  };
+}
+
+export function action_toggle_modal(data) {
+  return {
+    type: TOGGLE_MODAL,
+    payload: data,
   };
 }

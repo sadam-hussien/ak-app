@@ -45,7 +45,7 @@ export default function RegisterForm() {
       authDispatch(
         action_login({
           token: "1dlkjfdkfjdfj",
-          user: { name: "mahmoud hussien" },
+          user: { name: "Rahul" },
         })
       );
       console.log(values);

@@ -1,0 +1,32 @@
+.detailsBox {
+  color: var(--new-dark-color);
+  margin-bottom: var(--space-lg);
+}
+
+.detailsTitle {
+  font-weight: bold;
+  margin-right: 10px !important;
+  line-height: 0;
+  /* min-width: 150px; */
+}
+
+.metadata {
+  line-height: normal;
+  margin-bottom: var(--space-sm) !important;
+}
+
+.detailsBox:last-child .detailsresponse {
+  margin-bottom: var(--space-sm) !important;
+}
+
+.editBtn {
+  min-width: 240px;
+  margin-left: 40px;
+  color: var(--new-dark-color);
+  font-weight: bold;
+}
+
+.datasetImgDetails {
+  height: 250px;
+  background-color: var(--link-bg-color);
+}

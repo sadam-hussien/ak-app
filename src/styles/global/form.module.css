@@ -11,11 +11,11 @@
 }
 
 .input {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   height: var(--inp-height);
   width: 100%;
   border-radius: var(--radius);
-  border: 3px solid var(--inp-border-color);
+  border: 2px solid var(--inp-border-color);
   background-color: transparent;
   padding: 4px var(--space-md);
   color: var(--text-color);
@@ -33,22 +33,22 @@
 
 .input::-moz-placeholder {
   text-transform: capitalize;
-  font-size: 1.32rem;
+  font-size: 1rem;
 }
 
 .input:-ms-input-placeholder {
   text-transform: capitalize;
-  font-size: 1.32rem;
+  font-size: 1rem;
 }
 
 .input::-ms-input-placeholder {
   text-transform: capitalize;
-  font-size: 1.32rem;
+  font-size: 1rem;
 }
 
 .input::placeholder {
   text-transform: capitalize;
-  font-size: 1.32rem;
+  font-size: 1rem;
 }
 
 .input:focus {
@@ -64,7 +64,7 @@
   bottom: 0;
   right: 15px;
   padding: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: transparent;
   border: none;
   line-height: 0;
@@ -101,7 +101,7 @@
 }
 
 .errorMsg {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: red;
   margin-top: -15px;
   margin-bottom: var(--space-md);
@@ -112,14 +112,14 @@
 
 .btn {
   width: 100%;
-  height: 65px;
+  height: 48px;
   padding: 0 var(--space-md);
   min-width: 170px;
   border-radius: var(--radius);
   background: var(--bg-el-color);
   border: none;
   color: var(--bs-white);
-  font-size: 1.32rem;
+  font-size: 1.05rem;
   font-weight: 400;
   transition: 0.3s;
 }
@@ -150,19 +150,20 @@
 
 .checkBoxOuter {
   cursor: pointer;
-  margin-bottom: 45px;
+  margin-bottom: 30px;
 }
 
 .checkBoxLabel {
   font-weight: 400;
   color: var(--text-color);
   margin-left: var(--space-sm);
-  font-size: 1.2rem;
+  font-size: 0.9rem;
+  text-transform: lowercase !important;
 }
 
 .checkBoxInner {
-  height: 27px;
-  width: 27px;
+  height: 20px;
+  width: 20px;
   border-radius: 5px;
   /* background-color: var(--bg-el-color); */
   border: 1px solid var(--bg-el-color);
@@ -183,4 +184,37 @@
 
 .checkboxInput:checked ~ .checkBoxOuter .checkBoxInner {
   background-color: var(--bg-el-color);
+}
+
+/* select  */
+
+.selectBox {
+  /* background: ; */
+  /* box-shadow: 0px 10px 24px 0px #00000014; */
+  border-radius: 5px;
+  min-width: 100px;
+  height: 35px;
+  color: var(--text-color);
+  border: 1px solid var(--new-dark-color);
+}
+
+.select {
+  background-color: transparent;
+  border: none;
+  text-transform: capitalize;
+}
+
+.select option {
+  text-transform: capitalize;
+}
+
+.selectIcon {
+  line-height: 0;
+  padding: 0 var(--space-sm);
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
 }

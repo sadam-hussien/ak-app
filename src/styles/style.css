@@ -4,7 +4,7 @@
   --font-size-sm: 14px;
   --font-size-md: 18px;
   --space-sm: 10px;
-  --space-md: 20px;
+  --space-md: 17px;
   --space-lg: 40px;
 
   --main-color: rgb(83, 83, 83);
@@ -16,10 +16,14 @@
   --sidebar-border-color: #999;
   --link-bg-color: #f3f3f3;
 
-  --header-height: 70px;
-  --sidebar-width: 350px;
+  --header-height: 55px;
+  --sidebar-width: 300px;
   --radius: 10px;
-  --inp-height: 65px;
+  --inp-height: 48px;
+
+  /* colors variables  */
+  --new-dark-color: #000;
+  --new-el-bg-color: #bbbbbb;
 }
 
 body {
@@ -38,21 +42,21 @@ a:hover {
   color: initial;
 }
 
-/* .p-t {
-  padding-top: var(--space-lg);
-} */
+.p-t {
+  padding-top: 50px;
+}
 
-/* .p-b {
-  padding-bottom: var(--space-lg);
-} */
+.p-b {
+  padding-bottom: 50px;
+}
 
 .p-l {
   padding-left: 40px;
 }
 
-/* .p-r {
-  padding-right: var(--space-md);
-} */
+.p-r {
+  padding-right: 40px;
+}
 
 .sidebar {
   width: var(--sidebar-width);
@@ -61,4 +65,16 @@ a:hover {
 .page-content {
   transition: 0.3s;
   width: calc(100% - var(--sidebar-width));
+}
+
+.our-btn {
+  background: var(--new-el-bg-color);
+  height: 35px;
+  border-radius: 5px;
+  color: var(--text-color);
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }

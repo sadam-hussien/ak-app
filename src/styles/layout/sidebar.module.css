@@ -13,12 +13,12 @@
 }
 
 .toggleSidebar {
-  margin: 14px 0 12px 0;
+  margin: 5px 0 5px 0;
   text-align: right;
   background-color: transparent;
   border: none;
   padding: 0;
-  padding-right: 20px;
-  font-size: 30px;
+  padding-right: 10px;
+  font-size: 25px;
   color: #555;
 }

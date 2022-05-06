@@ -1,0 +1,17 @@
+.head {
+  margin-bottom: var(--space-lg);
+}
+
+.headTitle {
+  font-weight: bold;
+  color: var(--new-dark-color);
+}
+
+.headBtn {
+  border-radius: 5px;
+  color: var(--new-dark-color);
+  font-weight: bold;
+  height: 40px;
+  padding: 3px var(--space-md);
+  background-color: var(--link-bg-color);
+}

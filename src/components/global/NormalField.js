@@ -12,6 +12,8 @@ export default function NormalField({
   disabled,
   icon,
   style,
+  wrapperStyle = {},
+  labelStyle = {},
 }) {
   // for password show/hide btn
   const [passwordShown, setPasswordShown] = useState(false);
@@ -27,9 +29,13 @@ export default function NormalField({
   };
   return (
     <Fragment>
-      <div className={`form-group ${styles.formGroup}`}>
+      <div className={`form-group ${styles.formGroup}`} style={wrapperStyle}>
         {label && (
-          <label htmlFor={label} className={`${styles.label}`}>
+          <label
+            htmlFor={label}
+            className={`${styles.label}`}
+            style={labelStyle}
+          >
             {label}
           </label>
         )}

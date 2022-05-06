@@ -1,8 +1,8 @@
 .welcome {
-  margin: 70px 0;
+  margin: 50px 0;
   color: #000;
   font-weight: 700;
-  font-size: 2.7rem;
+  font-size: 2rem;
 }
 
 .infoBox:not(:last-child) {
@@ -14,8 +14,8 @@
 }
 
 .infolabel {
-  margin: 0 5px 15px 0;
+  margin: 0 5px 6px 0;
   color: #000;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: bold;
 }

@@ -9,8 +9,8 @@ const links = [
     link: "datasets",
     icon: <ion-icon name="layers-outline"></ion-icon>,
     subLinks: [
-      { label: "my datasets", url: "/data1" },
-      { label: "public datasets", url: "/data2" },
+      { label: "my datasets", url: "/datasets" },
+      { label: "public datasets", url: "/public-datasets" },
     ],
   },
   {

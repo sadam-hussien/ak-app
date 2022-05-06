@@ -1,0 +1,29 @@
+.datasetItem {
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--new-dark-color);
+}
+
+.img {
+  background-color: var(--link-bg-color);
+  height: 150px;
+}
+
+.datasetContent {
+  padding: var(--space-md) 0;
+}
+
+.datasetTitle {
+  margin-bottom: var(--space-sm);
+  /* color: var(--new-dark-color); */
+}
+
+.datasetUpdated {
+  font-size: .85rem;
+  color: var(--new-dark-color);
+}
+
+.datasetBtn {
+  display: inline-flex !important;
+  margin-top: var(--space-md);
+}

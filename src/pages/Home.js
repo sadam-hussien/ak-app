@@ -27,7 +27,7 @@ export default function Home() {
   const { authStore } = useContext(Store);
   const { user } = authStore;
   return (
-    <section className="p-l p-r p-b p-t">
+    <section className="p-l p-r">
       <h2 className={`text-capitalize ${styles.welcome}`}>
         welcome back, {user.name}
       </h2>

@@ -14,3 +14,11 @@ export const authState = () => {
     user: null,
   };
 };
+
+export const globalState = {
+  modalStatus: {
+    isActive: false,
+    comp: null,
+    id: null,
+  },
+};
