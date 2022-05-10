@@ -4,4 +4,6 @@ import Upload from "./Upload";
 
 import DataCleaning from "./DataCleaning";
 
-export { CreateSteps, Upload, DataCleaning };
+import Tagging from "./Tagging";
+
+export { CreateSteps, Upload, DataCleaning, Tagging };

@@ -4,12 +4,18 @@ import { Store } from "../store";
 
 import { Navigate, useLocation } from "react-router-dom";
 
-import { Upload, DataCleaning } from "../components/createDataset";
+import { Upload, DataCleaning, Tagging } from "../components/createDataset";
+
+import { Modal } from "../components/global";
 
 export default function CreateDatabase() {
   const { state } = useLocation();
   const from = state?.from;
   const name = state?.name;
+
+  // store
+  const { globalStore } = useContext(Store);
+  const { modalStatus } = globalStore;
 
   // redirect if there is no ceation
   if (!from || from !== "create") {
@@ -21,6 +27,15 @@ export default function CreateDatabase() {
         <Upload name={name} />
         <DataCleaning name={name} />
       </CreateDatabaseStepsWrapper>
+
+      {modalStatus.isActive && (
+        <Modal
+          noContainer
+          style={{ top: "var(--header-height)", display: "block" }}
+        >
+          <Tagging />
+        </Modal>
+      )}
     </section>
   );
 }

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { Store, action_create_dataset } from "../../store";
+import { Store, action_create_dataset, action_toggle_modal } from "../../store";
 
 import { Formik, Form } from "formik";
 
@@ -17,7 +17,7 @@ import Styles from "../../styles/global/form.module.css";
 export default function CreateDataSet() {
   const navigate = useNavigate();
   // store
-  const { dataDispatch } = useContext(Store);
+  const { dataDispatch, globalDispatch } = useContext(Store);
   // state
   const [loading, setLoading] = useState(false);
 
@@ -27,6 +27,7 @@ export default function CreateDataSet() {
       action_create_dataset({ name: values.name, tag: values.tags })
     );
     setTimeout(() => {
+      globalDispatch(action_toggle_modal({ comp: null }));
       navigate("/create-database", {
         state: { from: "create", name: values.name },
       });
