@@ -185,3 +185,13 @@ export const datasets = [
     },
   },
 ];
+
+export const creationSteps = [
+  "upload/choose data",
+  "data cleaning",
+  "tagging/labelling",
+  "split data",
+  "data processing",
+  "data augmentation",
+  "finalize & export data",
+];

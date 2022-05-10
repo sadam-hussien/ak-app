@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
+import { Store, action_create_dataset } from "../../store";
 
 import { Formik, Form } from "formik";
+
+import * as Yup from "yup";
 
 import { Btn, NormalField, SelectField } from "../global";
 
@@ -9,14 +15,33 @@ import styles from "../../styles/crud/index.module.css";
 import Styles from "../../styles/global/form.module.css";
 
 export default function CreateDataSet() {
+  const navigate = useNavigate();
+  // store
+  const { dataDispatch } = useContext(Store);
+  // state
+  const [loading, setLoading] = useState(false);
+
   const submitForm = (values, actions) => {
-    console.log(values);
-    actions.setSubmitting(false);
+    setLoading(true);
+    dataDispatch(
+      action_create_dataset({ name: values.name, tag: values.tags })
+    );
+    setTimeout(() => {
+      navigate("/create-database", {
+        state: { from: "create", name: values.name },
+      });
+    }, 400);
   };
+
+  const schema = Yup.object().shape({
+    name: Yup.string().required("the dataset name is required"),
+  });
+
   return (
     <Formik
-      initialValues={{ name: "", tags: "" }}
+      initialValues={{ name: "", tags: "segmentation" }}
       onSubmit={(values, actions) => submitForm(values, actions)}
+      validationSchema={schema}
     >
       {() => (
         <Form>
@@ -59,6 +84,7 @@ export default function CreateDataSet() {
             className={`d-flex justify-content-end ${styles.datasetCreateFooter}`}
           >
             <Btn
+              loading={loading}
               type="submit"
               label="create new dataset"
               customeClass="our-btn"

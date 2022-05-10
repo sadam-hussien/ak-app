@@ -22,3 +22,11 @@ export const globalState = {
     id: null,
   },
 };
+
+export const dataState = {
+  name: "",
+  tag: "",
+  active: 0,
+  step: "upload",
+  files: [],
+};

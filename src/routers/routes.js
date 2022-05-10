@@ -5,6 +5,7 @@ import {
   PublicDatasets,
   Datasets,
   DatasetDetails,
+  CreateDatabase,
 } from "../pages";
 
 export const routes = [
@@ -22,6 +23,12 @@ export const routes = [
     id: 6,
     path: "/datasets/:id",
     Component: DatasetDetails,
+    isProtected: true,
+  },
+  {
+    id: 7,
+    path: "/create-database",
+    Component: CreateDatabase,
     isProtected: true,
   },
 ];

@@ -1,5 +1,6 @@
 import { TOGGLE_MODAL } from "../types";
 import authReducer from "./authReducer";
+import dataReducer from "./dataReducer";
 
 export default function globalReducer(state, action) {
   switch (action.type) {
@@ -19,4 +20,4 @@ export default function globalReducer(state, action) {
   }
 }
 
-export { authReducer };
+export { authReducer, dataReducer };

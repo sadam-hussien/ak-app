@@ -10,4 +10,14 @@ import DatasetDetails from "./DatasetDetails";
 
 import PublicDatasets from "./PublicDatasets";
 
-export { Home, Login, Register, DatasetDetails, Datasets, PublicDatasets };
+import CreateDatabase from "./CreateDatabase";
+
+export {
+  Home,
+  Login,
+  Register,
+  DatasetDetails,
+  Datasets,
+  PublicDatasets,
+  CreateDatabase,
+};

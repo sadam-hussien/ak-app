@@ -1,0 +1,99 @@
+.filepond--item-panel {
+  display: none;
+}
+
+.filepond--list {
+  display: none !important;
+}
+
+.filepond--panel-root {
+  background-color: transparent !important;
+}
+
+.filepond--credits {
+  display: none;
+}
+
+.filepond--root {
+  margin-bottom: 0 !important;
+}
+
+.filepond--root label {
+  width: 100% !important;
+}
+
+.filepond--drop-label {
+  height: auto !important;
+}
+
+.labelWrapper {
+  background-color: var(--link-bg-color);
+  padding: var(--space-lg);
+  border: 2px dashed var(--new-gray-color);
+}
+
+.labelIcon {
+  --w: 150px;
+  width: var(--w);
+  height: var(--w);
+  border-radius: 50%;
+  background: var(--new-gray-color);
+  font-size: 90px !important;
+  margin: auto;
+}
+
+.labelTitle {
+  font-size: 2rem !important;
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.labelBtns {
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.labelBtn {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--new-gray-color);
+  border-radius: 5px;
+  min-width: 160px;
+  padding: 2px 20px;
+  background: #fff;
+  color: var(--text-color);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.labelBtn .labelBtnIcon {
+  line-height: 0;
+  margin-right: var(--space-sm);
+}
+
+.labelFooter {
+  gap: var(--space-lg)
+}
+
+.labelFooterTitle {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.labelFooterTitle span {
+  line-height: 0;
+  margin-right: var(--space-sm);
+}
+
+.fileloading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0 0 0 /.1);
+}

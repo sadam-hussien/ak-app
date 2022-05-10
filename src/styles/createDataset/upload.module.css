@@ -1,0 +1,37 @@
+.datasetName {
+  font-weight: bold;
+  color: var(--new-dark-color);
+  margin-bottom: var(--space-md);
+}
+
+.datasetName span {
+  margin-left: var(--space-sm);
+}
+
+.uploadFooter {
+  margin-top: var(--space-md);
+}
+
+.neddimagesTitle {
+  margin-bottom: var(--space-md);
+}
+
+.uploadImageBox {
+  background-color: var(--link-bg-color);
+  padding: var(--space-md);
+  cursor: pointer;
+}
+
+.uploadImageBoxTitle {
+  margin-bottom: var(--space-sm);
+}
+
+.uploadImageBoxTitle span {
+  line-height: 0;
+  margin-right: var(--space-sm);
+  font-weight: bold;
+}
+
+.uploadImageBoxContent {
+  font-size: .86rem;
+}

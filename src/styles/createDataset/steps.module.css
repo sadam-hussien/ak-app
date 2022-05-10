@@ -1,0 +1,41 @@
+.stepsWrapper {
+  padding: var(--space-lg);  
+  padding-top: 50px;  
+}
+
+.steps {
+  border-left: 1px solid var(--new-dark-color);
+}
+
+.stepItem {
+  color: var(--new-dark-color);
+  position: relative;
+  transition: .3s;
+}
+
+.stepItem:not(:last-child) {
+  margin-bottom: calc(var(--space-md) + 16px);
+}
+
+.stepItem::before {
+  --size: 14px;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var(--new-el-bg-color);
+  display: block;
+  margin-right: var(--space-sm);
+  margin-left: calc(-1 * (var(--size) / 2));
+  box-shadow: 0 0 0 7px #fff;
+  transition: .3s;
+}
+
+
+.activeStepItem {
+  color: var(--new-blue-color)
+}
+
+.activeStepItem::before {
+  background-color: var(--new-blue-color);
+}

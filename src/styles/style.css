@@ -24,6 +24,10 @@
   /* colors variables  */
   --new-dark-color: #000;
   --new-el-bg-color: #bbbbbb;
+  --new-blue-color: #221aff;
+  --new-gray-color: #c4c4c4;
+  --new-text-color: #4f4f4f;
+  --new-btn-bg-color: #929292;
 }
 
 body {
