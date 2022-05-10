@@ -46,7 +46,7 @@ export default function DataCleaningHead({ changeTab, activeTab }) {
       <button
         className={`${styles.continuButton}`}
         type="button"
-        onClick={() => dataDispatch(action_next_step())}
+        onClick={() => dataDispatch(action_next_step(3))}
       >
         continue
       </button>
