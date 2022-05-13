@@ -1,5 +1,6 @@
 :root {
   --font: "Roboto", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
   --font-size: 16px;
   --font-size-sm: 14px;
   --font-size-md: 18px;
@@ -28,10 +29,20 @@
   --new-gray-color: #c4c4c4;
   --new-text-color: #4f4f4f;
   --new-btn-bg-color: #929292;
+
+  /* colors  */
+  --n-text-color-light-bg: #303030;
+  --n-text-color-dark-bg: #f2f2f2;
+  --n-primary-color: #da402c;
+  --n-secondary-color: #1c1c20;
+  --n-secondary-color2: #1a1a1d;
+  --n-btn-hover-color: #7d190c;
+  --n-success-color: #2cda74;
 }
 
 body {
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: var(--n-text-color-light-bg);
   font-size: var(--font-size);
   font-family: var(--font);
   padding-top: var(--header-height);
@@ -81,4 +92,10 @@ a:hover {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  transition: .3s;
+}
+
+.our-btn:hover {
+  background-color: var(--n-btn-hover-color);
+  color: #fff;
 }

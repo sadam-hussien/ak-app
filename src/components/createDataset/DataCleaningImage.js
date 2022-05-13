@@ -4,6 +4,8 @@ import { Store, action_remove_file, action_toggle_modal } from "../../store";
 
 import { modal_tagging } from "../../constants";
 
+import { DeleteForeverOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/createDataset/dataCleaning.module.css";
 
 export default function DataCleaningImage({ file }) {
@@ -34,7 +36,7 @@ export default function DataCleaningImage({ file }) {
         onClick={() => dataDispatch(action_remove_file(file.id))}
         className={`${styles.dataCleaningImgItemDelete} position-absolute`}
       >
-        <ion-icon name="trash-outline"></ion-icon>
+        <DeleteForeverOutlined />
       </button>
     </div>
   );

@@ -9,6 +9,8 @@ import { AlertToast } from "../../components/global";
 // api
 import { server_logout } from "../../server/auth";
 
+import { PersonOutlineOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/layout/user.module.css";
 
 export default function User() {
@@ -58,7 +60,7 @@ export default function User() {
             <span
               className={`d-flex align-items-center justify-content-center ${styles.profileImgIcon}`}
             >
-              <ion-icon name="person-outline"></ion-icon>
+              <PersonOutlineOutlined />
             </span>
           )}
           {/* <span>{user.name}</span> */}

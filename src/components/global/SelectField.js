@@ -2,6 +2,8 @@ import React from "react";
 
 import { Field } from "formik";
 
+import { ExpandMoreOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/global/form.module.css";
 
 export default function SelectField({ name, options, style }) {
@@ -23,7 +25,7 @@ export default function SelectField({ name, options, style }) {
       </Field>
       {/* icon  */}
       <label htmlFor={name} className={`${styles.selectIcon} mb-0`}>
-        <ion-icon name="chevron-down-outline"></ion-icon>
+        <ExpandMoreOutlined />
       </label>
     </div>
   );

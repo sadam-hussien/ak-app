@@ -2,6 +2,11 @@ import React, { Fragment, useState } from "react";
 
 import { Field, ErrorMessage } from "formik";
 
+import { VisibilityOutlined, VisibilityOffOutlined } from "@mui/icons-material";
+
+// import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+// import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlinedIcon";
+
 import styles from "../../styles/global/form.module.css";
 
 export default function NormalField({
@@ -59,17 +64,13 @@ export default function NormalField({
             }`}
           >
             {!passwordShown ? (
-              <ion-icon name="eye-off-outline"></ion-icon>
+              <VisibilityOutlined />
             ) : (
-              <ion-icon name="eye-outline"></ion-icon>
+              <VisibilityOffOutlined />
             )}
           </button>
         )}
-        {icon && (
-          <span className={`${styles.fieldIcon} `}>
-            <ion-icon name={icon}></ion-icon>
-          </span>
-        )}
+        {icon && <span className={`${styles.fieldIcon} `}>{icon}</span>}
       </div>
       <ErrorMessage name={name} component="span" className={styles.errorMsg} />
     </Fragment>

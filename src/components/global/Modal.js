@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 
 import { Store, action_toggle_modal } from "../../store";
 
+import { CloseOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/global/modal.module.css";
 
 export default function Modal({ title, children, noContainer, style = {} }) {
@@ -30,7 +32,7 @@ export default function Modal({ title, children, noContainer, style = {} }) {
                         className={`${styles.closeModal} border-0`}
                         onClick={() => globalDispatch(action_toggle_modal())}
                       >
-                        <ion-icon name="close-outline"></ion-icon>
+                        <CloseOutlined />
                       </button>
                     </div>
                     {/* start modal obdy  */}

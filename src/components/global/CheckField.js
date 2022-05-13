@@ -2,6 +2,8 @@ import React from "react";
 
 import { Field } from "formik";
 
+import { CheckOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/global/form.module.css";
 
 export default function CheckField({ label, value, name, style }) {
@@ -22,7 +24,7 @@ export default function CheckField({ label, value, name, style }) {
           className={`d-inline-flex align-items-center justify-content-center ${styles.checkBoxInner}`}
         >
           <span className={styles.checkBoxIcon}>
-            <ion-icon name="checkmark-outline"></ion-icon>
+            <CheckOutlined />
           </span>
         </span>
         <span className={`${styles.checkBoxLabel} text-capitalize`}>

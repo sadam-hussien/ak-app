@@ -4,6 +4,8 @@ import Navbar from "../Navbar";
 
 import { NavLink } from "react-router-dom";
 
+import { ArrowCircleLeftOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/layout/sidebar.module.css";
 
 export default function SideBar() {
@@ -12,7 +14,7 @@ export default function SideBar() {
       <div className="container h-100">
         <div className={`h-100 d-flex flex-column ${styles.sidebarContent}`}>
           <NavLink to="/" className={`${styles.toggleSidebar}`}>
-            <ion-icon name="arrow-back-circle-outline"></ion-icon>
+            <ArrowCircleLeftOutlined />
           </NavLink>
           <Navbar />
         </div>

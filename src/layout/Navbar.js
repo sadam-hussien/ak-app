@@ -2,12 +2,19 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
+import {
+  LayersOutlined,
+  BoltOutlined,
+  MenuBookOutlined,
+  HomeOutlined,
+} from "@mui/icons-material";
+
 import styles from "../styles/layout/nav.module.css";
 
 const links = [
   {
     link: "datasets",
-    icon: <ion-icon name="layers-outline"></ion-icon>,
+    icon: <LayersOutlined />,
     subLinks: [
       { label: "my datasets", url: "/datasets" },
       { label: "public datasets", url: "/public-datasets" },
@@ -15,7 +22,7 @@ const links = [
   },
   {
     link: "models",
-    icon: <ion-icon name="analytics-outline"></ion-icon>,
+    icon: <BoltOutlined />,
     subLinks: [
       { label: "my models", url: "/data99" },
       { label: "public models", url: "/data3" },
@@ -23,7 +30,7 @@ const links = [
   },
   {
     link: "learning resources",
-    icon: <ion-icon name="book-outline"></ion-icon>,
+    icon: <MenuBookOutlined />,
     subLinks: [
       { label: "youtube videos", url: "/data9" },
       { label: "frequentely asked question", url: "/data4" },
@@ -42,7 +49,7 @@ export default function Navbar() {
     <nav className={styles.nav}>
       <NavLink to="/" className={({ isActive }) => activeLink(isActive)}>
         <span className={styles.icon}>
-          <ion-icon name="home-outline"></ion-icon>
+          <HomeOutlined />
         </span>
         <span>home</span>
       </NavLink>

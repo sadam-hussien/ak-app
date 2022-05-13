@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ArrowBackOutlined, ArrowForwardOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/createDataset/tagging.module.css";
 
 export default function TaggingHead({ next, prev }) {
@@ -13,7 +15,7 @@ export default function TaggingHead({ next, prev }) {
         onClick={() => prev()}
       >
         <span>
-          <ion-icon name="arrow-back-outline"></ion-icon>
+          <ArrowBackOutlined />
         </span>
         previous image
       </button>
@@ -24,7 +26,7 @@ export default function TaggingHead({ next, prev }) {
       >
         next image
         <span>
-          <ion-icon name="arrow-forward-outline"></ion-icon>
+          <ArrowForwardOutlined />
         </span>
       </button>
     </div>

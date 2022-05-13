@@ -6,6 +6,8 @@ import TaggingHead from "./TaggingHead";
 
 import TaggingEditor from "./TaggingEditor";
 
+import { UndoOutlined, RedoOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/createDataset/tagging.module.css";
 
 export default function Tagging() {
@@ -67,13 +69,13 @@ export default function Tagging() {
               <button type="button" className={styles.doBtn}>
                 undo
                 <span>
-                  <ion-icon name="arrow-undo-outline"></ion-icon>
+                  <UndoOutlined />
                 </span>
               </button>
               <button type="button" className={styles.doBtn}>
                 redo
                 <span>
-                  <ion-icon name="arrow-redo-outline"></ion-icon>
+                  <RedoOutlined />
                 </span>
               </button>
             </div>
