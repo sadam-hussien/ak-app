@@ -1,0 +1,101 @@
+.reactPictureTagger-pictureContainer {
+  position: relative;
+}
+
+.reactPictureTagger-pictureContainer canvas {
+  width: 100%;
+}
+
+.reactPictureTagger-tag {
+  opacity: 0.6;
+  position: absolute;
+  border: solid 2px;
+}
+
+.reactPictureTagger-tag:hover {
+  opacity: 1;
+  display:block;
+}
+
+.reactPictureTagger-tagName {
+  color: white;
+  font-weight: bold;
+  padding: 3px;
+  position: absolute;
+  top: -21px;
+  left: -2px;
+}
+
+.reactPictureTagger-tagControls {
+  color: #666;
+  border-top: 1px solid #666;
+  font-size: 1.6em;
+}
+
+.reactPictureTagger-tagControls a {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.reactPictureTagger-newTag {
+  position: absolute;
+  border: dashed 2px orange;
+  background-color:rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight:bold;
+  padding:3px;
+}
+
+.reactPictureTagger-tag-name {
+  background-color: rgba(0,0,0, 0.8);
+  color: white;
+  width: 100%;
+  min-width:120px;
+  border: solid 1px #e7e7e7;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.reactPictureTagger-tag-upateControls {
+  font-size: 2.4em;
+  padding-top: 6px;
+}
+.reactPictureTagger-tag-upateControls a {
+  margin: 3px;
+}
+
+.reactPictureTagger-newTag-name {
+  background-color: rgba(0,0,0, 0.8);
+  color: white;
+  width: 100%;
+  min-width:120px;
+  border: solid 1px #e7e7e7;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.reactPictureTagger-newTag-instructions {
+  position: absolute;
+  top: 0px;
+  background-color: rgba(255,255,255,0.75);
+  width: 100%;
+  padding: 6px 3px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.reactPictureTagger-tag-deleteButton {
+  cursor: pointer;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 1.3em;
+  top: 2px;
+}

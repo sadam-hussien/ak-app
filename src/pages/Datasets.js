@@ -9,7 +9,7 @@ import { datasets, modal_add_dataset } from "../constants";
 import { CreateDataSet } from "../components/crud";
 
 export default function Datasets() {
-  const { globalDispatch, globalStore } = useContext(Store);
+  const { globalDispatch, globalStore, dataStore } = useContext(Store);
   return (
     <section className="p-l p-r p-b p-t">
       <Head
@@ -22,11 +22,17 @@ export default function Datasets() {
 
       {/* items  */}
       <div className="row g-5 ">
-        {datasets.map((item) => (
-          <div key={item.id} className="col-4">
-            <DatasetItem data={item} />
-          </div>
-        ))}
+        {dataStore.datasets.length
+          ? dataStore.datasets.map((item, index) => (
+              <div key={index} className="col-4">
+                <DatasetItem data={item} />
+              </div>
+            ))
+          : datasets.map((item) => (
+              <div key={item.id} className="col-4">
+                <DatasetItem data={item} />
+              </div>
+            ))}
       </div>
 
       {globalStore.modalStatus.isActive && (

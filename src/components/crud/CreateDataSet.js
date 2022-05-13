@@ -24,7 +24,11 @@ export default function CreateDataSet() {
   const submitForm = (values, actions) => {
     setLoading(true);
     dataDispatch(
-      action_create_dataset({ name: values.name, tag: values.tags })
+      action_create_dataset({
+        name: values.name,
+        tag: values.tags,
+        id: Math.random(),
+      })
     );
     setTimeout(() => {
       globalDispatch(action_toggle_modal({ comp: null }));

@@ -15,3 +15,13 @@ export const LOAD_FILES = "LOAD_FILES";
 export const LOAD_MORE_FILES = "LOAD_MORE_FILES";
 
 export const REMOVE_FILE = "REMOVE_FILE";
+
+export const ADD_NEW_TAG = "ADD_NEW_TAG";
+
+export const EDIT_TAG = "EDIT_TAG";
+
+export const DELETE_TAG = "DELETE_TAG";
+
+export const HANDLE_TAGS = "HANDLE_TAGS";
+
+export const DONE_TAGS = "DONE_TAGS";

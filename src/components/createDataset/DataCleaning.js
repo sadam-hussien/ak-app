@@ -31,9 +31,23 @@ export default function DataCleaning() {
           ))}
         </div>
       ) : activeTab === "annotated" ? (
-        <div>annotated</div>
+        <div className={`row row-cols-5 gy-4 ${styles.dataCleaningWrappers}`}>
+          {dataStore.annotated.map((file) => (
+            <div className="col" key={file.id}>
+              <DataCleaningImage file={file} />
+            </div>
+          ))}
+        </div>
       ) : (
-        <div>not annotated</div>
+        <div className={`row row-cols-5 gy-4 ${styles.dataCleaningWrappers}`}>
+          {dataStore.files
+            .filter((f) => !f.tags)
+            .map((file) => (
+              <div className="col" key={file.id}>
+                <DataCleaningImage file={file} />
+              </div>
+            ))}
+        </div>
       )}
     </section>
   );

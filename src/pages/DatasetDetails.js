@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { useParams, Link } from "react-router-dom";
+
+import { Store } from "../store";
 
 import { datasets } from "../constants";
 
@@ -11,15 +13,19 @@ import styles from "../styles/dataset/index.module.css";
 export default function DatasetDetails() {
   const { id } = useParams();
 
+  const { dataStore } = useContext(Store);
+
   // fetch single item
   const [item, setItem] = useState(null);
 
   useEffect(() => {
-    const filter = datasets.filter(
-      (item) => parseInt(item.id) === parseInt(id)
-    );
-    setItem(...filter);
-  }, [id]);
+    if (dataStore.files) {
+      const filter = dataStore.files.filter(
+        (item) => parseInt(item.id) === parseInt(id)
+      );
+      setItem(...filter);
+    }
+  }, [id, dataStore.files]);
 
   // loading
   if (!item) {

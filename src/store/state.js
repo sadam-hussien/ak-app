@@ -29,4 +29,6 @@ export const dataState = {
   active: 0,
   step: "upload",
   files: [],
+  annotated: [],
+  datasets: [],
 };

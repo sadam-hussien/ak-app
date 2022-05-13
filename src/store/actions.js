@@ -7,6 +7,11 @@ import {
   BACK_STEP,
   LOAD_FILES,
   REMOVE_FILE,
+  ADD_NEW_TAG,
+  EDIT_TAG,
+  DELETE_TAG,
+  HANDLE_TAGS,
+  DONE_TAGS,
 } from "./types";
 
 export function action_login(data) {
@@ -61,5 +66,39 @@ export function action_remove_file(id) {
   return {
     type: REMOVE_FILE,
     payload: id,
+  };
+}
+
+export function action_add_new_tag(data) {
+  return {
+    type: ADD_NEW_TAG,
+    payload: data,
+  };
+}
+
+export function action_edit_tag(data) {
+  return {
+    type: EDIT_TAG,
+    payload: data,
+  };
+}
+
+export function action_delete_tag(data) {
+  return {
+    type: DELETE_TAG,
+    payload: data,
+  };
+}
+
+export function action_handle_tags(data) {
+  return {
+    type: HANDLE_TAGS,
+    payload: data,
+  };
+}
+
+export function action_done_tags() {
+  return {
+    type: DONE_TAGS,
   };
 }

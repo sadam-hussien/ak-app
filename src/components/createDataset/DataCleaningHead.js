@@ -31,7 +31,7 @@ export default function DataCleaningHead({ changeTab, activeTab }) {
             "annotated"
           )}`}
         >
-          annotated images (5)
+          annotated images ({dataStore.annotated.length})
         </button>
         <button
           type="button"
@@ -40,7 +40,8 @@ export default function DataCleaningHead({ changeTab, activeTab }) {
             "not_annotated"
           )}`}
         >
-          not annotated images ({dataStore.files.length - 5})
+          not annotated images (
+          {dataStore.files.length - dataStore.annotated.length})
         </button>
       </div>
       <button

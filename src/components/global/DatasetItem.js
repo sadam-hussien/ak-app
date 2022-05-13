@@ -10,6 +10,13 @@ export default function DatasetItem({ data }) {
   return (
     <div className={`${styles.datasetItem}`}>
       <div className={`${styles.img} position-relative`}>
+        {/* {data.file && (
+          <img
+            src={window.URL.createObjectURL(data.file)}
+            alt={data.filename}
+            className="img-fluid w-100 h-100"
+          />
+        )} */}
         <div className="dropdown">
           <button
             type="button"
@@ -47,13 +54,13 @@ export default function DatasetItem({ data }) {
 
       <div className={`${styles.datasetContent} text-center`}>
         <h5 className={`${styles.datasetTitle} text-capitalize`}>
-          {data.title}
+          {data.title || data.name}
         </h5>
         <span
           className={`${styles.datasetUpdated} d-flex align-items-center justify-content-center text-center text-capitalize`}
         >
           <span>last edited:</span>
-          <span>{dateHandler(data.updated_at)}</span>
+          <span>{dateHandler(new Date())}</span>
         </span>
         <Link
           to={`/datasets/${data.id}`}
