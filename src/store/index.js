@@ -14,11 +14,11 @@ import {
   action_load_files,
   action_next_step,
   action_remove_file,
-  action_add_new_tag,
-  action_edit_tag,
-  action_delete_tag,
   action_handle_tags,
   action_done_tags,
+  action_edit_tags,
+  action_finish_dataset,
+  action_reset_dataset,
 } from "./actions";
 export {
   action_login,
@@ -29,11 +29,11 @@ export {
   action_load_files,
   action_next_step,
   action_remove_file,
-  action_add_new_tag,
-  action_edit_tag,
-  action_delete_tag,
   action_handle_tags,
   action_done_tags,
+  action_edit_tags,
+  action_finish_dataset,
+  action_reset_dataset,
 };
 // *****
 

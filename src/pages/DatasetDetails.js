@@ -4,8 +4,6 @@ import { useParams, Link } from "react-router-dom";
 
 import { Store } from "../store";
 
-import { datasets } from "../constants";
-
 import { Head } from "../components/global";
 
 import styles from "../styles/dataset/index.module.css";
@@ -20,7 +18,7 @@ export default function DatasetDetails() {
 
   useEffect(() => {
     if (dataStore.files) {
-      const filter = dataStore.files.filter(
+      const filter = dataStore.datasets.filter(
         (item) => parseInt(item.id) === parseInt(id)
       );
       setItem(...filter);
@@ -33,7 +31,7 @@ export default function DatasetDetails() {
   }
   return (
     <section className="p-l p-r p-b p-t">
-      <Head title={item.title} />
+      <Head title={item.name} />
 
       {/* items  */}
       <div className="row g-5 ">
@@ -44,7 +42,7 @@ export default function DatasetDetails() {
               dataset name:
             </h5>
             <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-              {item.title}
+              {item.name}
             </h6>
           </div>
 
@@ -54,11 +52,12 @@ export default function DatasetDetails() {
               dataset tags:
             </h5>
             <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-              {item.tags.map((tag, index) => (
-                <span key={index} style={{ textDecoration: "underline" }}>
-                  {tag} {item.tags.length - 1 === index ? "" : ", "}
-                </span>
-              ))}
+              {item.tags &&
+                item.tags.map((tag, index) => (
+                  <span key={index} style={{ textDecoration: "underline" }}>
+                    {tag} {item.tags.length - 1 === index ? "" : ", "}
+                  </span>
+                ))}
             </h6>
           </div>
 

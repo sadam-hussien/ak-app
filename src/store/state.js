@@ -1,3 +1,5 @@
+import { datasets } from "../constants";
+
 export const authState = () => {
   const getToken = JSON.parse(localStorage.getItem("token"));
   const getuser = JSON.parse(localStorage.getItem("user"));
@@ -30,5 +32,5 @@ export const dataState = {
   step: "upload",
   files: [],
   annotated: [],
-  datasets: [],
+  datasets: datasets,
 };

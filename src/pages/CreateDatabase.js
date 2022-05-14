@@ -4,7 +4,13 @@ import { Store } from "../store";
 
 import { Navigate, useLocation } from "react-router-dom";
 
-import { Upload, DataCleaning, Tagging } from "../components/createDataset";
+import {
+  Upload,
+  DataCleaning,
+  Tagging,
+  SplitData,
+  Finalize,
+} from "../components/createDataset";
 
 import { Modal } from "../components/global";
 
@@ -21,11 +27,17 @@ export default function CreateDatabase() {
   if (!from || from !== "create") {
     return <Navigate to="/datasets" />;
   }
+
   return (
     <section className="p-l p-r p-b p-t">
       <CreateDatabaseStepsWrapper>
         <Upload name={name} />
         <DataCleaning name={name} />
+        <div></div>
+        <SplitData name={name} />
+        <div></div>
+        <div></div>
+        <Finalize name={name} />
       </CreateDatabaseStepsWrapper>
 
       {modalStatus.isActive && (

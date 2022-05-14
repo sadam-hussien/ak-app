@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
-import { Store, action_toggle_modal } from "../store";
+import { Store, action_toggle_modal, action_reset_dataset } from "../store";
 
 import { Head, DatasetItem, Modal } from "../components/global";
 
-import { datasets, modal_add_dataset } from "../constants";
+import { modal_add_dataset } from "../constants";
 
 import { CreateDataSet } from "../components/crud";
 
 export default function Datasets() {
-  const { globalDispatch, globalStore, dataStore } = useContext(Store);
+  const { globalDispatch, globalStore, dataStore, dataDispatch } =
+    useContext(Store);
+
+  useEffect(() => {
+    dataDispatch(action_reset_dataset());
+  }, [dataDispatch]);
   return (
     <section className="p-l p-r p-b p-t">
       <Head
@@ -22,17 +27,12 @@ export default function Datasets() {
 
       {/* items  */}
       <div className="row g-5 ">
-        {dataStore.datasets.length
-          ? dataStore.datasets.map((item, index) => (
-              <div key={index} className="col-4">
-                <DatasetItem data={item} />
-              </div>
-            ))
-          : datasets.map((item) => (
-              <div key={item.id} className="col-4">
-                <DatasetItem data={item} />
-              </div>
-            ))}
+        {dataStore.datasets.length &&
+          dataStore.datasets.map((item, index) => (
+            <div key={index} className="col-4">
+              <DatasetItem data={item} />
+            </div>
+          ))}
       </div>
 
       {globalStore.modalStatus.isActive && (

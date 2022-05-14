@@ -54,7 +54,7 @@ export default function DatasetItem({ data }) {
 
       <div className={`${styles.datasetContent} text-center`}>
         <h5 className={`${styles.datasetTitle} text-capitalize`}>
-          {data.title || data.name}
+          {data.name}
         </h5>
         <span
           className={`${styles.datasetUpdated} d-flex align-items-center justify-content-center text-center text-capitalize`}

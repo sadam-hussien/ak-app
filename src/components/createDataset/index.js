@@ -6,4 +6,8 @@ import DataCleaning from "./DataCleaning";
 
 import Tagging from "./Tagging";
 
-export { CreateSteps, Upload, DataCleaning, Tagging };
+import SplitData from "./SplitData";
+
+import Finalize from "./Finalize";
+
+export { CreateSteps, Upload, DataCleaning, Tagging, SplitData, Finalize };

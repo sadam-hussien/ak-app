@@ -6,6 +6,9 @@ import {
   REMOVE_FILE,
   HANDLE_TAGS,
   DONE_TAGS,
+  EDIT_TAGS,
+  FINISH_DATASET,
+  RESET_DATASET,
 } from "../types";
 
 export default function dataReducer(state, action) {
@@ -16,7 +19,6 @@ export default function dataReducer(state, action) {
       };
       return {
         ...state,
-        datasets: [data, ...state.datasets],
         ...data,
       };
     }
@@ -51,7 +53,6 @@ export default function dataReducer(state, action) {
         active: action.payload ? action.payload : state.active++,
       };
     }
-
     case BACK_STEP: {
       return {
         ...state,
@@ -73,10 +74,38 @@ export default function dataReducer(state, action) {
       };
     }
     case DONE_TAGS: {
-      const filterItemsHasTags = state.files.filter((f) => f.tags);
+      const filterItemsHasTags = state.files.filter((f) => {
+        if (f.tags) {
+          const isExist = state.annotated.some((i) => i.id === f.id);
+          if (!isExist) {
+            return f;
+          }
+        }
+      });
+      console.log(filterItemsHasTags);
       return {
         ...state,
         annotated: [...filterItemsHasTags, ...state.annotated],
+      };
+    }
+    case FINISH_DATASET: {
+      const data = {
+        ...action.payload,
+      };
+      return {
+        ...state,
+        datasets: [data, ...state.datasets],
+      };
+    }
+
+    case RESET_DATASET: {
+      return {
+        ...state,
+        active: 0,
+        files: [],
+        annotated: [],
+        name: "",
+        tag: "",
       };
     }
     default: {

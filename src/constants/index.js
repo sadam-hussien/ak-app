@@ -19,7 +19,7 @@ export const dateHandler = (date) => {
 export const datasets = [
   {
     id: 1,
-    title: "dataset name - 1",
+    name: "dataset name - 1",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -33,7 +33,7 @@ export const datasets = [
   },
   {
     id: 2,
-    title: "dataset name - 2",
+    name: "dataset name - 2",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -47,7 +47,7 @@ export const datasets = [
   },
   {
     id: 3,
-    title: "dataset name - 3",
+    name: "dataset name - 3",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -61,7 +61,7 @@ export const datasets = [
   },
   {
     id: 4,
-    title: "dataset name - 1",
+    name: "dataset name - 1",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -75,7 +75,7 @@ export const datasets = [
   },
   {
     id: 5,
-    title: "dataset name - 2",
+    name: "dataset name - 2",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -89,7 +89,7 @@ export const datasets = [
   },
   {
     id: 6,
-    title: "dataset name - 3",
+    name: "dataset name - 3",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -103,7 +103,7 @@ export const datasets = [
   },
   {
     id: 7,
-    title: "dataset name - 1",
+    name: "dataset name - 1",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -117,7 +117,7 @@ export const datasets = [
   },
   {
     id: 8,
-    title: "dataset name - 2",
+    name: "dataset name - 2",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -131,7 +131,7 @@ export const datasets = [
   },
   {
     id: 9,
-    title: "dataset name - 3",
+    name: "dataset name - 3",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -145,7 +145,7 @@ export const datasets = [
   },
   {
     id: 10,
-    title: "dataset name - 1",
+    name: "dataset name - 1",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -159,7 +159,7 @@ export const datasets = [
   },
   {
     id: 11,
-    title: "dataset name - 2",
+    name: "dataset name - 2",
     description: "",
     updated_at: new Date(),
     image: "",
@@ -173,7 +173,7 @@ export const datasets = [
   },
   {
     id: 12,
-    title: "dataset name - 3",
+    name: "dataset name - 3",
     description: "",
     updated_at: new Date(),
     image: "",
