@@ -10,13 +10,13 @@ export default function DatasetItem({ data }) {
   return (
     <div className={`${styles.datasetItem}`}>
       <div className={`${styles.img} position-relative`}>
-        {/* {data.file && (
+        {data.files && (
           <img
-            src={window.URL.createObjectURL(data.file)}
-            alt={data.filename}
+            src={window.URL.createObjectURL(data.files[0].file)}
+            alt={data.name}
             className="img-fluid w-100 h-100"
           />
-        )} */}
+        )}
         <div className="dropdown">
           <button
             type="button"

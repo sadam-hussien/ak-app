@@ -89,9 +89,7 @@ export default function dataReducer(state, action) {
       };
     }
     case FINISH_DATASET: {
-      const data = {
-        ...action.payload,
-      };
+      const data = action.payload;
       return {
         ...state,
         datasets: [data, ...state.datasets],

@@ -86,6 +86,13 @@ export default function DatasetDetails() {
         </div>
         <div className="col-6">
           <div className={`${styles.datasetImgDetails} position-relative`}>
+            {item.files && (
+              <img
+                src={window.URL.createObjectURL(item.files[0].file)}
+                alt={item.name}
+                className="img-fluid w-100 h-100"
+              />
+            )}
             <h5 className={`${styles.datasetImgTitle} text-capitalize`}>
               dataset display image
             </h5>

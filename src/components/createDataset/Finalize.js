@@ -29,6 +29,7 @@ export default function SplitData() {
             a_images: 199,
             classes: 3,
           },
+          files: dataStore.files,
         })
       );
       resolve();
