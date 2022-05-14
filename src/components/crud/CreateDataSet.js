@@ -26,7 +26,7 @@ export default function CreateDataSet() {
     dataDispatch(
       action_create_dataset({
         name: values.name,
-        tag: values.tags,
+        tags: values.tags,
         id: Math.random(),
       })
     );
