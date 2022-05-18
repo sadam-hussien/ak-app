@@ -16,6 +16,7 @@ export default function SplitData() {
   const navigate = useNavigate();
   const { dataDispatch, dataStore } = useContext(Store);
 
+  console.log(dataStore.files);
   const finishDataset = () => {
     new Promise((resolve) => {
       dataDispatch(

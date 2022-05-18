@@ -2,18 +2,18 @@ import React from "react";
 
 import { Head, Card } from "../components/global";
 
-import { publicDatasets } from "../constants";
+import { publicModels } from "../constants";
 
-export default function PublicDatasets() {
+export default function PublicModels() {
   return (
     <section className="p-l p-r p-b p-t">
       <Head title="public datasets" />
 
       {/* items  */}
       <div className="row g-5 ">
-        {publicDatasets.map((item) => (
+        {publicModels.map((item) => (
           <div key={item.id} className="col-4">
-            <Card data={item} route="datasets" />
+            <Card data={item} route="models" />
           </div>
         ))}
       </div>

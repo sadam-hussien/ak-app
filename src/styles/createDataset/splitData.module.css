@@ -1,0 +1,20 @@
+.splitDataTitle {
+  color: var(--new-dark-color);
+}
+
+.splitDataArea {
+  margin-top: 80px;
+}
+
+.splitDataLabels {
+  margin-bottom: var(--space-md);
+}
+
+.splitDataSave {
+  margin-top: 30px;
+}
+
+.saveBtn {
+  border: none !important;
+  text-transform: capitalize;
+}

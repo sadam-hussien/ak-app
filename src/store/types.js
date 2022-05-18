@@ -25,3 +25,5 @@ export const EDIT_TAGS = "EDIT_TAGS";
 export const FINISH_DATASET = "FINISH_DATASET";
 
 export const RESET_DATASET = "RESET_DATASET";
+
+export const SPLIT_DATA = "SPLIT_DATA";

@@ -12,6 +12,7 @@ import {
   DONE_TAGS,
   FINISH_DATASET,
   RESET_DATASET,
+  SPLIT_DATA,
 } from "./types";
 
 export function action_login(data) {
@@ -98,5 +99,12 @@ export function action_finish_dataset(data) {
 export function action_reset_dataset() {
   return {
     type: RESET_DATASET,
+  };
+}
+
+export function action_split_data(data) {
+  return {
+    type: SPLIT_DATA,
+    payload: data,
   };
 }

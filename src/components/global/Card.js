@@ -6,7 +6,7 @@ import { dateHandler } from "../../constants";
 
 import styles from "../../styles/global/datasetItem.module.css";
 
-export default function DatasetItem({ data }) {
+export default function Card({ data, route }) {
   return (
     <div className={`${styles.datasetItem}`}>
       <div className={`${styles.img} position-relative`}>
@@ -70,7 +70,7 @@ export default function DatasetItem({ data }) {
           <span>{dateHandler(new Date())}</span>
         </span>
         <Link
-          to={`/datasets/${data.id}`}
+          to={`/${route}/${data.id}`}
           className={`our-btn border-0 text-capitalize ${styles.datasetBtn}`}
         >
           details

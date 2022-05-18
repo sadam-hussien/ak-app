@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { Store, action_toggle_modal, action_reset_dataset } from "../store";
 
 import { Head, Card, Modal } from "../components/global";
@@ -8,9 +10,11 @@ import { modal_add_dataset } from "../constants";
 
 import { CreateDataSet } from "../components/crud";
 
-export default function Datasets() {
+export default function Models() {
   const { globalDispatch, globalStore, dataStore, dataDispatch } =
     useContext(Store);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dataDispatch(action_reset_dataset());
@@ -18,11 +22,9 @@ export default function Datasets() {
   return (
     <section className="p-l p-r p-b p-t">
       <Head
-        title="my datasets"
-        btn="create new dataset"
-        callback={() =>
-          globalDispatch(action_toggle_modal({ comp: modal_add_dataset }))
-        }
+        title="my models"
+        btn="create new model"
+        callback={() => console.log("create")}
       />
 
       {/* items  */}
@@ -30,7 +32,7 @@ export default function Datasets() {
         {dataStore.datasets.length &&
           dataStore.datasets.map((item, index) => (
             <div key={index} className="col-4">
-              <Card data={item} route="datasets" />
+              <Card data={item} route="models" />
             </div>
           ))}
       </div>

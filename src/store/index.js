@@ -19,6 +19,7 @@ import {
   action_edit_tags,
   action_finish_dataset,
   action_reset_dataset,
+  action_split_data,
 } from "./actions";
 export {
   action_login,
@@ -34,6 +35,7 @@ export {
   action_edit_tags,
   action_finish_dataset,
   action_reset_dataset,
+  action_split_data,
 };
 // *****
 

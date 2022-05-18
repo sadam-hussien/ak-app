@@ -92,10 +92,41 @@ a:hover {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .our-btn:hover {
   background-color: var(--n-btn-hover-color);
   color: #fff;
+}
+
+.continueButton {
+  background-color: var(--new-gray-color);
+  height: 40px;
+  min-width: 200px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: var(--text-color);
+  border: none;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.MuiSlider-rail {
+  background-color: var(--new-gray-color) !important;
+  height: 10px !important;
+  opacity: .7 !important;
+}
+
+.MuiSlider-track {
+  opacity: 1 !important;
+  background-color: var(--new-gray-color) !important;
+  height: 10px !important;
+  border: none !important;
+}
+
+.MuiSlider-thumb {
+  background: #fff !important;
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%) !important;
+  border: 1px solid var(--new-dark-color) !important;
 }

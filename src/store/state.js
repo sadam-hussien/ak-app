@@ -33,4 +33,8 @@ export const dataState = {
   files: [],
   annotated: [],
   datasets: datasets,
+  splitData: {
+    min: null,
+    max: null,
+  },
 };

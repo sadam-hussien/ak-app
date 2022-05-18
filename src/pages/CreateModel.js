@@ -14,7 +14,7 @@ import {
 
 import { Modal } from "../components/global";
 
-export default function CreateDatabase() {
+export default function CreateModel() {
   const { state } = useLocation();
   const from = state?.from;
   const name = state?.name;
@@ -35,6 +35,8 @@ export default function CreateDatabase() {
         <DataCleaning name={name} />
         <div></div>
         <SplitData name={name} />
+        <div></div>
+        <div></div>
         <Finalize name={name} />
       </CreateDatabaseStepsWrapper>
 
