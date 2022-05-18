@@ -1,67 +1,39 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { Store } from "../../store";
 
-import {
-  Store,
-  action_next_step,
-  action_finish_dataset,
-  action_reset_dataset,
-} from "../../store";
+import FinalizeHead from "./FinalizeHead";
 
-import styles from "../../styles/createDataset/finalize.module.css";
+import FinalizeTab from "./FinalizeTab";
+
+import DataCleaningImage from "./DataCleaningImage";
+
+import Styles from "../../styles/createDataset/finalize.module.css";
+
+import styles from "../../styles/createDataset/dataCleaning.module.css";
 
 export default function SplitData() {
-  const { state } = useLocation();
-  const navigate = useNavigate();
-  const { dataDispatch, dataStore } = useContext(Store);
+  const { dataStore } = useContext(Store);
+  const [activeTab, setActiveTab] = useState("training");
+  const changeTab = (tab) => setActiveTab(tab);
 
-  console.log(dataStore.files);
-  const finishDataset = () => {
-    new Promise((resolve) => {
-      dataDispatch(
-        action_finish_dataset({
-          name: dataStore.name || state?.name,
-          tags: [dataStore.tag],
-          id: Math.random(),
-          metadata: {
-            owner: "mahmoud",
-            images: 200,
-            a_images: 199,
-            classes: 3,
-          },
-          files: dataStore.files,
-        })
-      );
-      resolve();
-    })
-      .then(() => {
-        dataDispatch(action_reset_dataset());
-      })
-      .then(() => {
-        navigate("/datasets");
-      });
-  };
   return (
-    <section>
-      <div className={`d-flex justify-content-between`}>
-        <h5>finalize page</h5>
-        <div>
-          <button
-            className={`${styles.continuButton}`}
-            type="button"
-            onClick={() => dataDispatch(action_next_step(1))}
-          >
-            edit dataset
-          </button>
-          <button
-            className={`${styles.continuButton}`}
-            type="button"
-            onClick={finishDataset}
-          >
-            finish
-          </button>
-        </div>
+    <section className={`${Styles.finalize}`}>
+      <FinalizeHead />
+      <div className={`${Styles.finalizeTabs}`}>
+        <FinalizeTab changeTab={changeTab} activeTab={activeTab} />
+      </div>
+
+      <div className={`${Styles.finalizeImages}`}>
+        {activeTab === "training" && (
+          <div className={`row row-cols-5 gy-4 ${styles.dataCleaningWrappers}`}>
+            {dataStore.files.map((file) => (
+              <div className="col" key={file.id}>
+                <DataCleaningImage file={file} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

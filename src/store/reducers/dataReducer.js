@@ -112,6 +112,10 @@ export default function dataReducer(state, action) {
         annotated: [],
         name: "",
         tag: "",
+        splitData: {
+          min: null,
+          max: null,
+        },
       };
     }
     default: {

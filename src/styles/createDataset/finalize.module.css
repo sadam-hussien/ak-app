@@ -1,1 +1,25 @@
-/* demodata */
+.continuButton:not(:last-child) {
+  margin-right: var(--space-md);
+}
+
+.continuButton {
+  min-width: 120px !important;
+  padding: 3px 10px;
+}
+
+.btnText {
+  margin-left: var(--space-sm);
+}
+
+.datasetName {
+  color: var(--new-dark-color);
+  font-weight: bold;
+}
+
+.datasetName span {
+  margin-left: var(--space-sm);
+}
+
+.finalizeTabs {
+  margin-top: var(--space-md);
+}
