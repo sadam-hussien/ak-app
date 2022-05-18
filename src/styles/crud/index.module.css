@@ -1,3 +1,8 @@
 .datasetCreateFooter {
   margin-top: var(--space-lg);
 }
+
+.hyperParams label {
+  margin-bottom: 0 !important;
+  /* margin-right: var(--space-md); */
+}

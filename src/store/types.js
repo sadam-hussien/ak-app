@@ -27,3 +27,5 @@ export const FINISH_DATASET = "FINISH_DATASET";
 export const RESET_DATASET = "RESET_DATASET";
 
 export const SPLIT_DATA = "SPLIT_DATA";
+
+export const CREATE_MODEL = "CREATE_MODEL";

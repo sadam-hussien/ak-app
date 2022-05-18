@@ -38,3 +38,25 @@ export const dataState = {
     max: null,
   },
 };
+
+export const modelState = {
+  name: "",
+  tag: "",
+  active: 0,
+  files: [],
+  annotated: [],
+  datasets: [],
+  models: datasets,
+  splitData: {
+    min: null,
+    max: null,
+  },
+  type: "",
+  model: "",
+  epochs: "",
+  hp2: "",
+  hp3: "",
+  hp4: "",
+  hp5: "",
+  hp6: "",
+};

@@ -19,6 +19,9 @@ import ModelDetails from "./ModelDetails";
 import PublicModels from "./PublicModels";
 
 import CreateModel from "./CreateModel";
+
+import TestingModel from "./TestingModel";
+
 export {
   Home,
   Login,
@@ -31,4 +34,5 @@ export {
   ModelDetails,
   PublicModels,
   CreateModel,
+  TestingModel,
 };

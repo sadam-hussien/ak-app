@@ -1,3 +1,5 @@
 import CreateDataSet from "./CreateDataSet";
 
-export { CreateDataSet };
+import CreateModel from "./CreateModel";
+
+export { CreateDataSet, CreateModel };

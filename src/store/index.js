@@ -1,8 +1,12 @@
 import React, { createContext, useReducer, useEffect } from "react";
 
-import { authState, globalState, dataState } from "./state";
+import { authState, globalState, dataState, modelState } from "./state";
 
-import globalReducer, { authReducer, dataReducer } from "./reducers";
+import globalReducer, {
+  authReducer,
+  dataReducer,
+  modelReducer,
+} from "./reducers";
 
 // actions
 import {
@@ -20,6 +24,7 @@ import {
   action_finish_dataset,
   action_reset_dataset,
   action_split_data,
+  action_create_model,
 } from "./actions";
 export {
   action_login,
@@ -36,6 +41,7 @@ export {
   action_finish_dataset,
   action_reset_dataset,
   action_split_data,
+  action_create_model,
 };
 // *****
 
@@ -44,6 +50,7 @@ export const Store = createContext();
 export function Provider({ children }) {
   const [globalStore, globalDispatch] = useReducer(globalReducer, globalState);
   const [dataStore, dataDispatch] = useReducer(dataReducer, dataState);
+  const [modelStore, modelDispatch] = useReducer(modelReducer, modelState);
   // auth
   const [authStore, authDispatch] = useReducer(authReducer, authState());
 
@@ -60,6 +67,8 @@ export function Provider({ children }) {
         globalDispatch,
         dataStore,
         dataDispatch,
+        modelStore,
+        modelDispatch,
         authStore,
         authDispatch,
       }}

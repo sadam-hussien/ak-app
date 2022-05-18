@@ -13,6 +13,7 @@ import {
   FINISH_DATASET,
   RESET_DATASET,
   SPLIT_DATA,
+  CREATE_MODEL,
 } from "./types";
 
 export function action_login(data) {
@@ -105,6 +106,14 @@ export function action_reset_dataset() {
 export function action_split_data(data) {
   return {
     type: SPLIT_DATA,
+    payload: data,
+  };
+}
+
+// model
+export function action_create_model(data) {
+  return {
+    type: CREATE_MODEL,
     payload: data,
   };
 }

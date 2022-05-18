@@ -1,5 +1,6 @@
 export const modal_add_dataset = "modal_add_dataset";
 export const modal_tagging = "modal_tagging";
+export const modal_create_model = "modal_create_model";
 
 export const dateHandler = (date) => {
   const d = new Date(date);

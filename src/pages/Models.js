@@ -1,36 +1,30 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
-import { useNavigate } from "react-router-dom";
-
-import { Store, action_toggle_modal, action_reset_dataset } from "../store";
+import { Store, action_toggle_modal } from "../store";
 
 import { Head, Card, Modal } from "../components/global";
 
-import { modal_add_dataset } from "../constants";
+import { modal_create_model } from "../constants";
 
-import { CreateDataSet } from "../components/crud";
+import { CreateModel } from "../components/crud";
 
 export default function Models() {
-  const { globalDispatch, globalStore, dataStore, dataDispatch } =
-    useContext(Store);
+  const { globalDispatch, globalStore, modelStore } = useContext(Store);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    dataDispatch(action_reset_dataset());
-  }, [dataDispatch]);
   return (
     <section className="p-l p-r p-b p-t">
       <Head
         title="my models"
         btn="create new model"
-        callback={() => console.log("create")}
+        callback={() =>
+          globalDispatch(action_toggle_modal({ comp: modal_create_model }))
+        }
       />
 
       {/* items  */}
       <div className="row g-5 ">
-        {dataStore.datasets.length &&
-          dataStore.datasets.map((item, index) => (
+        {modelStore.models.length &&
+          modelStore.models.map((item, index) => (
             <div key={index} className="col-4">
               <Card data={item} route="models" />
             </div>
@@ -38,8 +32,8 @@ export default function Models() {
       </div>
 
       {globalStore.modalStatus.isActive && (
-        <Modal title="create a new dataset">
-          <CreateDataSet />
+        <Modal col="col-12" title="create a new model" titleLeft>
+          <CreateModel />
         </Modal>
       )}
     </section>

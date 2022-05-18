@@ -10,6 +10,7 @@ import {
   ModelDetails,
   PublicModels,
   CreateModel,
+  TestingModel,
 } from "../pages";
 
 export const routes = [
@@ -57,6 +58,12 @@ export const routes = [
     id: 11,
     path: "/create",
     Component: CreateModel,
+    isProtected: true,
+  },
+  {
+    id: 12,
+    path: "/testing-model",
+    Component: TestingModel,
     isProtected: true,
   },
 ];

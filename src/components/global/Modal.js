@@ -8,7 +8,15 @@ import { CloseOutlined } from "@mui/icons-material";
 
 import styles from "../../styles/global/modal.module.css";
 
-export default function Modal({ title, children, noContainer, style = {} }) {
+export default function Modal({
+  title,
+  children,
+  noContainer,
+  style = {},
+  col,
+  titleStyle = {},
+  titleLeft,
+}) {
   const { globalDispatch } = useContext(Store);
   return (
     <Fragment>
@@ -17,14 +25,17 @@ export default function Modal({ title, children, noContainer, style = {} }) {
           {!noContainer ? (
             <div className="container">
               <div className="row justify-content-center">
-                <div className="col-8">
+                <div className={`${col ? col : "col-8"} `}>
                   <div className={`${styles.modalContent}`}>
                     {/* start header */}
                     <div
                       className={`modal-header position-relative border-0 p-0 ${styles.modalHeader}`}
                     >
                       <h5
-                        className={`modal-title text-capitalize text-center w-100 ${styles.modalTitle}`}
+                        className={`modal-title text-capitalize ${
+                          titleLeft ? "text-left" : "text-center"
+                        } w-100 ${styles.modalTitle}`}
+                        style={titleStyle}
                       >
                         {title}
                       </h5>
