@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { useParams, Link } from "react-router-dom";
 
-import { models } from "../constants";
+import { Store } from "../store";
 
 import { Head } from "../components/global";
 
@@ -11,15 +11,20 @@ import styles from "../styles/dataset/index.module.css";
 export default function ModelDetails() {
   const { id } = useParams();
 
+  const { modelStore } = useContext(Store);
+
   // fetch single item
   const [item, setItem] = useState(null);
 
   useEffect(() => {
-    const filter = models.filter((item) => parseInt(item.id) === parseInt(id));
-    setItem(...filter);
-  }, [id]);
+    if (modelStore.models) {
+      const filter = modelStore.models.filter(
+        (item) => parseInt(item.id) === parseInt(id)
+      );
+      setItem(...filter);
+    }
+  }, [id, modelStore.models]);
 
-  console.log(item);
   // loading
   if (!item) {
     return "loading...";
@@ -179,7 +184,7 @@ export default function ModelDetails() {
             style={{ marginLeft: "15%", width: "50%" }}
           >
             <Link
-              to={`/test-model/${item.id}`}
+              to={`/testing-model/${item.id}`}
               className={`our-btn d-inline-flex ${styles.editBtn} text-capitalize`}
               style={{
                 marginLeft: "0",

@@ -25,6 +25,7 @@ import {
   action_reset_dataset,
   action_split_data,
   action_create_model,
+  action_model_load_files,
 } from "./actions";
 export {
   action_login,
@@ -42,6 +43,7 @@ export {
   action_reset_dataset,
   action_split_data,
   action_create_model,
+  action_model_load_files,
 };
 // *****
 

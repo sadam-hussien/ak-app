@@ -62,7 +62,7 @@ export const routes = [
   },
   {
     id: 12,
-    path: "/testing-model",
+    path: "/testing-model/:id",
     Component: TestingModel,
     isProtected: true,
   },

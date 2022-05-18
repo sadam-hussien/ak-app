@@ -1,4 +1,4 @@
-import { datasets } from "../constants";
+import { datasets, models } from "../constants";
 
 export const authState = () => {
   const getToken = JSON.parse(localStorage.getItem("token"));
@@ -34,29 +34,12 @@ export const dataState = {
   annotated: [],
   datasets: datasets,
   splitData: {
-    min: null,
-    max: null,
+    training: null,
+    test: null,
+    validation: null,
   },
 };
 
 export const modelState = {
-  name: "",
-  tag: "",
-  active: 0,
-  files: [],
-  annotated: [],
-  datasets: [],
-  models: datasets,
-  splitData: {
-    min: null,
-    max: null,
-  },
-  type: "",
-  model: "",
-  epochs: "",
-  hp2: "",
-  hp3: "",
-  hp4: "",
-  hp5: "",
-  hp6: "",
+  models: models,
 };

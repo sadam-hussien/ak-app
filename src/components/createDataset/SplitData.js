@@ -27,7 +27,13 @@ export default function SplitData() {
     setLoading(true);
     new Promise((resolve) => {
       setTimeout(() => {
-        dataDispatch(action_split_data({ min, max }));
+        dataDispatch(
+          action_split_data({
+            training: min - starterValue,
+            test: endValue - max,
+            validation: max - min,
+          })
+        );
         resolve();
       }, 300);
     })

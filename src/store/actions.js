@@ -14,6 +14,7 @@ import {
   RESET_DATASET,
   SPLIT_DATA,
   CREATE_MODEL,
+  LOAD_MODELS_Files,
 } from "./types";
 
 export function action_login(data) {
@@ -115,5 +116,12 @@ export function action_create_model(data) {
   return {
     type: CREATE_MODEL,
     payload: data,
+  };
+}
+
+export function action_model_load_files(files) {
+  return {
+    type: LOAD_MODELS_Files,
+    payload: files,
   };
 }

@@ -31,14 +31,33 @@ export default function CreateModel() {
     setLoading(true);
     new Promise((resolve) => {
       setTimeout(() => {
-        modelDispatch(action_create_model(values));
+        modelDispatch(
+          action_create_model({
+            id: Math.random(),
+            updated_at: new Date(),
+            image: "",
+            datasetUsed: values.datasets,
+            status: "under training",
+            trainingStatus: 67,
+            splitData: {
+              training: 60,
+              test: 20,
+              validation: 10,
+            },
+            metadata: {
+              owner: "Pankaj Goel",
+              images: 200,
+              a_images: 199,
+              classes: 3,
+              epochs: 8,
+            },
+            ...values,
+          })
+        );
         resolve();
       }, 300);
     }).then(() => {
       globalDispatch(action_toggle_modal({ comp: null }));
-      navigate("/testing-model", {
-        state: { from: "create", name: values.name },
-      });
     });
   };
 

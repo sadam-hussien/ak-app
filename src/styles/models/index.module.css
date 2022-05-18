@@ -1,0 +1,20 @@
+.backBtn {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--new-dark-color);
+}
+
+.backBtn span {
+  margin-left: 5px;
+}
+
+.title {
+  margin-top: var(--space-md);
+color: var(--new-dark-color);
+margin-bottom: var(--space-md);
+}
+
+.info {
+  color: var(--new-dark-color);
+  margin-bottom: 20px;
+}

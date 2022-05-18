@@ -92,8 +92,7 @@ export default function dataReducer(state, action) {
       return {
         ...state,
         splitData: {
-          min: action.payload.min,
-          max: action.payload.max,
+          ...action.payload,
         },
       };
     }
