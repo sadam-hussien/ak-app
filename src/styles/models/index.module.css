@@ -18,3 +18,12 @@ margin-bottom: var(--space-md);
   color: var(--new-dark-color);
   margin-bottom: 20px;
 }
+
+.anotherImg {
+  margin-top: var(--space-lg);
+  border: none;
+  min-width: 130px;
+  text-transform: capitalize;
+  padding: 3px 20px;
+  color: var(--new-dark-color);
+}

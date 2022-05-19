@@ -18,7 +18,7 @@ import { useDebouncedCallback } from "use-debounce";
 // Register the plugins
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginFileEncode);
 
-export default function Uploader({ dataCleaning }) {
+export default function Uploader({ id, dataCleaning }) {
   const fileRef = useRef();
   // store
   const { modelDispatch } = useContext(Store);
@@ -31,7 +31,7 @@ export default function Uploader({ dataCleaning }) {
   const debounced = useDebouncedCallback((value) => {
     setLoading(false);
     // strore files in global store
-    modelDispatch(action_model_load_files(value));
+    modelDispatch(action_model_load_files({ data: value, id }));
     // empty the file
     setFile([]);
   }, 1500);

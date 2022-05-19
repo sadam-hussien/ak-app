@@ -1,4 +1,4 @@
-import { CREATE_MODEL, LOAD_MODELS_Files } from "../types";
+import { CREATE_MODEL, LOAD_MODELS_Files, RESET_MODEL_FILES } from "../types";
 
 export default function modelReducer(state, action) {
   switch (action.type) {
@@ -12,10 +12,8 @@ export default function modelReducer(state, action) {
       };
     }
     case LOAD_MODELS_Files: {
-      console.log(action.payload);
-      const handleFiles = action.payload.map((f) => {
+      const handleFiles = action.payload.data.map((f) => {
         return {
-          ...f,
           file: f.file,
           filename: f.filename,
           id: f.id,
@@ -25,9 +23,38 @@ export default function modelReducer(state, action) {
           filenameWithoutExtension: f.filenameWithoutExtension,
         };
       });
+
+      // get file
+      const findItem = [...state.models].find(
+        (i) => parseInt(i.id) === parseInt(action.payload.id)
+      );
+
+      const filterItems = [...state.models].filter(
+        (i) => parseInt(i.id) !== parseInt(action.payload.id)
+      );
+
+      const newItem = { ...findItem, files: handleFiles };
+
       return {
         ...state,
-        models: [...handleFiles, ...state.models],
+        models: [newItem, ...filterItems],
+      };
+    }
+
+    case RESET_MODEL_FILES: {
+      // get file
+      const findItem = [...state.models].find(
+        (i) => parseInt(i.id) === parseInt(action.payload)
+      );
+
+      const filterItems = [...state.models].filter(
+        (i) => parseInt(i.id) !== parseInt(action.payload)
+      );
+
+      const newItem = { ...findItem, files: null };
+      return {
+        ...state,
+        models: [newItem, ...filterItems],
       };
     }
     default: {

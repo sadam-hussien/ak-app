@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, Fragment } from "react";
 
-import { Store } from "../store";
+import { Store, action_model_reset_files } from "../store";
 
 import { Link, useParams } from "react-router-dom";
 
@@ -12,7 +12,7 @@ import styles from "../styles/models/index.module.css";
 
 export default function TestingModel() {
   const { id } = useParams();
-  const { modelStore } = useContext(Store);
+  const { modelStore, modelDispatch } = useContext(Store);
 
   // fetch single item
   const [item, setItem] = useState(null);
@@ -26,9 +26,14 @@ export default function TestingModel() {
     }
   }, [id, modelStore.models]);
 
+  console.log(item);
+
   return (
     <section className="p-l p-r p-b p-t">
-      <Link to={`/model/${id}`} className={`${styles.backBtn} text-capitalize`}>
+      <Link
+        to={`/models/${id}`}
+        className={`${styles.backBtn} text-capitalize`}
+      >
         <ChevronLeft />
         <span>back</span>
       </Link>
@@ -40,7 +45,17 @@ export default function TestingModel() {
           </h5>
           <div className="row">
             <div className="col-8">
-              <FileUploader />
+              {item.files ? (
+                <div>
+                  <img
+                    src={window.URL.createObjectURL(item.files[0].file)}
+                    alt="name of pic"
+                    className="img-fluid"
+                  />
+                </div>
+              ) : (
+                <FileUploader id={id} />
+              )}
             </div>
             <div className="col-4">
               <h6 className={`text-capitalize ${styles.info}`}>
@@ -53,6 +68,17 @@ export default function TestingModel() {
               <h6 className={`text-capitalize ${styles.info}`}>
                 accurency: 97%
               </h6>
+              {item.files && (
+                <div className="d-flex justify-content-end">
+                  <button
+                    type="button"
+                    onClick={() => modelDispatch(action_model_reset_files(id))}
+                    className={`our-btn ${styles.anotherImg}`}
+                  >
+                    test another image
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </Fragment>
