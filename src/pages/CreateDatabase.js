@@ -14,6 +14,8 @@ import {
 
 import { Modal } from "../components/global";
 
+import { modal_split, modal_tagging } from "../constants";
+
 export default function CreateDatabase() {
   const { state } = useLocation();
   const from = state?.from;
@@ -34,17 +36,27 @@ export default function CreateDatabase() {
         <Upload name={name} />
         <DataCleaning name={name} />
         <div></div>
-        <SplitData name={name} />
+        <div></div>
         <Finalize name={name} />
       </CreateDatabaseStepsWrapper>
 
       {modalStatus.isActive && (
-        <Modal
-          noContainer
-          style={{ top: "var(--header-height)", display: "block" }}
-        >
-          <Tagging />
-        </Modal>
+        <Fragment>
+          {modalStatus.comp === modal_tagging ? (
+            <Modal
+              noContainer
+              style={{ top: "var(--header-height)", display: "block" }}
+            >
+              <Tagging />
+            </Modal>
+          ) : modalStatus.comp === modal_split ? (
+            <Modal title="how do you want to split your data?" titleLeft>
+              <SplitData name={name} />
+            </Modal>
+          ) : (
+            ""
+          )}
+        </Fragment>
       )}
     </section>
   );

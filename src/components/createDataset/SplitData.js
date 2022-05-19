@@ -1,6 +1,11 @@
 import React, { useContext, useState } from "react";
 
-import { Store, action_next_step, action_split_data } from "../../store";
+import {
+  Store,
+  action_next_step,
+  action_split_data,
+  action_toggle_modal,
+} from "../../store";
 
 import { AlertToast } from "../global";
 
@@ -9,7 +14,7 @@ import { Slider } from "@mui/material";
 import styles from "../../styles/createDataset/splitData.module.css";
 
 export default function SplitData() {
-  const { dataDispatch } = useContext(Store);
+  const { dataDispatch, globalDispatch } = useContext(Store);
   const starterValue = 0;
   const endValue = 100;
 
@@ -39,27 +44,17 @@ export default function SplitData() {
     })
       .then(() => {
         AlertToast("success", "dataset splited successfully");
-        setLoading(false);
+        dataDispatch(action_next_step(4));
+        globalDispatch(action_toggle_modal({ comp: null }));
       })
       .catch((err) => {
         AlertToast("error", "error ocured, please try again later");
       });
   };
+  // onClick={() => dataDispatch(action_next_step(4))}
 
   return (
     <section className={`${styles.splitData}`}>
-      <div className={`d-flex justify-content-between align-items-center`}>
-        <h5 className={`m-0 text-capitalize ${styles.splitDataTitle}`}>
-          how do you want to split your data?
-        </h5>
-        <button
-          className={`${styles.continuButton} continueButton`}
-          type="button"
-          onClick={() => dataDispatch(action_next_step(4))}
-        >
-          continue
-        </button>
-      </div>
       <div className={`${styles.splitDataArea}`}>
         <div className={`${styles.splitDataLabels}`}>
           <div className="row g-4">

@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 
-import { action_next_step, Store } from "../../store";
+import { action_next_step, Store, action_toggle_modal } from "../../store";
+
+import { modal_split } from "../../constants";
 
 import styles from "../../styles/createDataset/dataCleaning.module.css";
 
 export default function DataCleaningHead({ changeTab, activeTab }) {
-  const { dataStore, dataDispatch } = useContext(Store);
+  const { dataStore, dataDispatch, globalDispatch } = useContext(Store);
   const handleActiveTab = (tab) => {
     if (activeTab === tab) {
       return styles.dataCleaningHeadTabActive;
@@ -47,7 +49,10 @@ export default function DataCleaningHead({ changeTab, activeTab }) {
       <button
         className={`${styles.continuButton}`}
         type="button"
-        onClick={() => dataDispatch(action_next_step(3))}
+        // onClick={() => dataDispatch(action_next_step(3))}
+        onClick={() =>
+          globalDispatch(action_toggle_modal({ comp: modal_split }))
+        }
       >
         continue
       </button>
