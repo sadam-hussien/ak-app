@@ -2,40 +2,60 @@ import React, { useContext, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { Store, action_create_dataset, action_toggle_modal } from "../../store";
+import {
+  Store,
+  action_Edit_dataset,
+  action_toggle_modal,
+  action_next_step,
+} from "../../store";
 
 import { Formik, Form } from "formik";
 
 import * as Yup from "yup";
 
-import { Btn, NormalField, SelectField } from "../global";
+import { AlertToast, Btn, NormalField, SelectField } from "../global";
 
 import styles from "../../styles/crud/index.module.css";
 
 import Styles from "../../styles/global/form.module.css";
 
-export default function CreateDataSet() {
+export default function EditDataset() {
   const navigate = useNavigate();
   // store
-  const { dataDispatch, globalDispatch } = useContext(Store);
+  const { dataDispatch, globalDispatch, globalStore } = useContext(Store);
+  const { id, name, tag, item } = globalStore.modalStatus;
   // state
   const [loading, setLoading] = useState(false);
 
+  const tagStr = tag[0];
+
   const submitForm = (values, actions) => {
     setLoading(true);
-    dataDispatch(
-      action_create_dataset({
-        name: values.name,
-        tags: values.tags,
-        id: Math.random(),
+    new Promise((resolve) => {
+      setTimeout(() => {
+        dataDispatch(
+          action_Edit_dataset({
+            name: values.name,
+            tag: [values.tags],
+            id: id,
+            item,
+          })
+        );
+        resolve();
+      }, 300);
+    })
+      .then(() => {
+        globalDispatch(action_toggle_modal({ comp: null }));
+        dataDispatch(action_next_step(1));
       })
-    );
-    setTimeout(() => {
-      globalDispatch(action_toggle_modal({ comp: null }));
-      navigate("/create-database", {
-        state: { from: "create", name: values.name },
+      .then(() => {
+        navigate("/edit-dataset", {
+          state: { from: "edit", name: values.name, id: id },
+        });
+      })
+      .catch((err) => {
+        AlertToast("error", "error ocured, please try again later");
       });
-    }, 400);
   };
 
   const schema = Yup.object().shape({
@@ -44,7 +64,7 @@ export default function CreateDataSet() {
 
   return (
     <Formik
-      initialValues={{ name: "", tags: "segmentation" }}
+      initialValues={{ name: name, tags: tagStr }}
       onSubmit={(values, actions) => submitForm(values, actions)}
       validationSchema={schema}
     >
@@ -91,7 +111,7 @@ export default function CreateDataSet() {
             <Btn
               loading={loading}
               type="submit"
-              label="create new dataset"
+              label="edit dataset"
               customeClass="our-btn"
               style={{
                 maxWidth: "250px",

@@ -20,6 +20,10 @@ export const dateHandler = (date) => {
 
 export const datasets = [
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 1,
     name: "dataset name - 1",
     description: "",
@@ -34,6 +38,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 2,
     name: "dataset name - 2",
     description: "",
@@ -48,6 +56,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 3,
     name: "dataset name - 3",
     description: "",
@@ -62,6 +74,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 4,
     name: "dataset name - 1",
     description: "",
@@ -76,6 +92,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 5,
     name: "dataset name - 2",
     description: "",
@@ -90,6 +110,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 6,
     name: "dataset name - 3",
     description: "",
@@ -104,6 +128,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 7,
     name: "dataset name - 1",
     description: "",
@@ -118,6 +146,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 8,
     name: "dataset name - 2",
     description: "",
@@ -132,6 +164,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 9,
     name: "dataset name - 3",
     description: "",
@@ -146,6 +182,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 10,
     name: "dataset name - 1",
     description: "",
@@ -160,6 +200,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 11,
     name: "dataset name - 2",
     description: "",
@@ -174,6 +218,10 @@ export const datasets = [
     },
   },
   {
+    splitData: {
+      min: 0,
+      max: 0,
+    },
     id: 12,
     name: "dataset name - 3",
     description: "",

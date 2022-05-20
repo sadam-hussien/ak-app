@@ -22,6 +22,8 @@ import CreateModel from "./CreateModel";
 
 import TestingModel from "./TestingModel";
 
+import EditDataset from "./EditDataset";
+
 export {
   Home,
   Login,
@@ -35,4 +37,5 @@ export {
   PublicModels,
   CreateModel,
   TestingModel,
+  EditDataset,
 };

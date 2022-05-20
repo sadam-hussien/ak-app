@@ -9,6 +9,8 @@ import {
   FINISH_DATASET,
   RESET_DATASET,
   SPLIT_DATA,
+  EDIT_DATASET,
+  FINISH_EDIT_DATASET,
 } from "../types";
 
 export default function dataReducer(state, action) {
@@ -20,6 +22,31 @@ export default function dataReducer(state, action) {
       return {
         ...state,
         ...data,
+      };
+    }
+    case EDIT_DATASET: {
+      // 1 - files
+      const files = action.payload.item.files || [];
+      // 2 - annotated
+      const annotated = action.payload.item.files
+        ? action.payload.item.files.filter((f) => {
+            if (f.tags) {
+              return f;
+            }
+            return;
+          })
+        : [];
+      // 3 - splitedData
+      const splitedData = action.payload.item.splitData;
+
+      return {
+        ...state,
+        files: files,
+        annotated: annotated,
+        splitData: splitedData,
+        tag: action.payload.tag,
+        name: action.payload.name,
+        id: action.payload.id,
       };
     }
     case LOAD_FILES: {
@@ -82,7 +109,6 @@ export default function dataReducer(state, action) {
           }
         }
       });
-      console.log(filterItemsHasTags);
       return {
         ...state,
         annotated: [...filterItemsHasTags, ...state.annotated],
@@ -101,6 +127,24 @@ export default function dataReducer(state, action) {
       return {
         ...state,
         datasets: [data, ...state.datasets],
+      };
+    }
+    case FINISH_EDIT_DATASET: {
+      const { id } = action.payload;
+      const findFile = state.files.find((f) => parseInt(f.id) === parseInt(id));
+      const findItemIndex = state.datasets.findIndex(
+        (i) => parseInt(i.id) === parseInt(id)
+      );
+      const filterItems = state.datasets.filter(
+        (i) => parseInt(i.id) !== parseInt(id)
+      );
+      filterItems.splice(findItemIndex, 0, {
+        ...findFile,
+        ...action.payload,
+      });
+      return {
+        ...state,
+        datasets: filterItems,
       };
     }
     case RESET_DATASET: {

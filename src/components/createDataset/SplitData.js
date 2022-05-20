@@ -13,13 +13,13 @@ import { Slider } from "@mui/material";
 
 import styles from "../../styles/createDataset/splitData.module.css";
 
-export default function SplitData() {
+export default function SplitData({ data }) {
   const { dataDispatch, globalDispatch } = useContext(Store);
   const starterValue = 0;
   const endValue = 100;
 
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(100);
+  const [min, setMin] = useState(data ? data.min : 0);
+  const [max, setMax] = useState(data ? data.max : 100);
 
   const [loading, setLoading] = useState(false);
 
@@ -37,6 +37,8 @@ export default function SplitData() {
             training: min - starterValue,
             test: endValue - max,
             validation: max - min,
+            min: min,
+            max: max,
           })
         );
         resolve();

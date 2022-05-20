@@ -121,11 +121,9 @@ export default function Tagging() {
               </button>
             </div>
 
-            <input
-              type="text"
-              className={`form-control ${styles.input}`}
-              placeholder="number of classes"
-            />
+            <span className={`form-control ${styles.input}`}>
+              {activeImage?.tags?.length || 0}
+            </span>
             <div className="mt-auto d-flex justify-content-end">
               {!addTag ? (
                 <button

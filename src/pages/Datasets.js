@@ -6,7 +6,7 @@ import { Head, Card, Modal } from "../components/global";
 
 import { modal_add_dataset } from "../constants";
 
-import { CreateDataSet } from "../components/crud";
+import { CreateDataSet } from "../components/createDataset";
 
 export default function Datasets() {
   const { globalDispatch, globalStore, dataStore, dataDispatch } =

@@ -11,6 +11,7 @@ import {
   PublicModels,
   CreateModel,
   TestingModel,
+  EditDataset,
 } from "../pages";
 
 export const routes = [
@@ -64,6 +65,12 @@ export const routes = [
     id: 12,
     path: "/testing-model/:id",
     Component: TestingModel,
+    isProtected: true,
+  },
+  {
+    id: 13,
+    path: "/edit-dataset",
+    Component: EditDataset,
     isProtected: true,
   },
 ];

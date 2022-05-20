@@ -16,6 +16,8 @@ import {
   CREATE_MODEL,
   LOAD_MODELS_Files,
   RESET_MODEL_FILES,
+  EDIT_DATASET,
+  FINISH_EDIT_DATASET,
 } from "./types";
 
 export function action_login(data) {
@@ -131,5 +133,19 @@ export function action_model_reset_files(id) {
   return {
     type: RESET_MODEL_FILES,
     payload: id,
+  };
+}
+
+export function action_Edit_dataset(data) {
+  return {
+    type: EDIT_DATASET,
+    payload: data,
+  };
+}
+
+export function action_finish_edit_dataset(data) {
+  return {
+    type: FINISH_EDIT_DATASET,
+    payload: data,
   };
 }

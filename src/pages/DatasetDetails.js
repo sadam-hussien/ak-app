@@ -1,17 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
 
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { Store } from "../store";
+import { action_toggle_modal, Store } from "../store";
 
-import { Head } from "../components/global";
+import { Head, Modal } from "../components/global";
+
+import { EditDataset } from "../components/editDataset";
+
+import { modal_add_dataset } from "../constants";
 
 import styles from "../styles/dataset/index.module.css";
 
 export default function DatasetDetails() {
   const { id } = useParams();
 
-  const { dataStore } = useContext(Store);
+  const { dataStore, globalDispatch, globalStore } = useContext(Store);
 
   // fetch single item
   const [item, setItem] = useState(null);
@@ -73,6 +77,10 @@ export default function DatasetDetails() {
                 owner - {item.metadata.owner}
               </h6>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
+                Training/Test/Validation Split - {item?.splitData?.training}/
+                {item?.splitData?.test}/{item?.splitData?.validation}
+              </h6>
+              <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
                 total number of images - {item.metadata.images}
               </h6>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
@@ -100,12 +108,29 @@ export default function DatasetDetails() {
         </div>
       </div>
 
-      <Link
-        to="/datasetedit"
-        className={`our-btn d-inline-flex ${styles.editBtn} text-capitalize`}
+      <button
+        onClick={() =>
+          globalDispatch(
+            action_toggle_modal({
+              comp: modal_add_dataset,
+              id: id,
+              name: item.name,
+              tag: item.tags,
+              item: item,
+            })
+          )
+        }
+        type="button"
+        className={`our-btn d-inline-flex ${styles.editBtn} text-capitalize border-0`}
       >
         edit this dataset
-      </Link>
+      </button>
+
+      {globalStore.modalStatus.isActive && (
+        <Modal title={`edit dataset - ${item.name}`}>
+          <EditDataset />
+        </Modal>
+      )}
     </section>
   );
 }

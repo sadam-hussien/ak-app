@@ -10,4 +10,14 @@ import SplitData from "./SplitData";
 
 import Finalize from "./Finalize";
 
-export { CreateSteps, Upload, DataCleaning, Tagging, SplitData, Finalize };
+import CreateDataSet from "./CreateDataSet";
+
+export {
+  CreateSteps,
+  Upload,
+  DataCleaning,
+  Tagging,
+  SplitData,
+  Finalize,
+  CreateDataSet,
+};

@@ -33,3 +33,7 @@ export const CREATE_MODEL = "CREATE_MODEL";
 export const LOAD_MODELS_Files = "LOAD_MODELS_Files";
 
 export const RESET_MODEL_FILES = "RESET_MODEL_FILES";
+
+export const EDIT_DATASET = "EDIT_DATASET";
+
+export const FINISH_EDIT_DATASET = "FINISH_EDIT_DATASET";
