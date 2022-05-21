@@ -31,17 +31,17 @@ export default function Tagging() {
 
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (activeImage.tags) {
-      const filterTag = dataStore.files.filter((item) => item.tags);
-      setTaggingImage(filterTag);
-      setAddTag(false);
-    } else {
-      const filterTag = dataStore.files.filter((item) => !item.tags);
-      setTaggingImage(filterTag);
-      setAddTag(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (activeImage.tags) {
+  //     const filterTag = dataStore.files.filter((item) => item.tags);
+  //     setTaggingImage(filterTag);
+  //     setAddTag(false);
+  //   } else {
+  //     const filterTag = dataStore.files.filter((item) => !item.tags);
+  //     setTaggingImage(filterTag);
+  //     setAddTag(true);
+  //   }
+  // }, []);
 
   const nextImage = () => {
     const findActiveImage = taggingImage.findIndex(

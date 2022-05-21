@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -12,10 +12,19 @@ export default function Card({ data, route }) {
       <div className={`${styles.img} position-relative`}>
         {data.files && (
           <img
-            src={window.URL.createObjectURL(data.files[0].file)}
+            src={window.URL.createObjectURL(data?.files[0]?.file)}
             alt={data.name}
             className="img-fluid w-100 h-100"
           />
+        )}
+        {route === "models" && (
+          <Fragment>
+            {data?.trainingStatus < 100 && (
+              <div className={`spinner-border ${styles.spinner}`} role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            )}
+          </Fragment>
         )}
         <div
           className="dropdown"

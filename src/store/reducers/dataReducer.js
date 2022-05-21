@@ -69,6 +69,7 @@ export default function dataReducer(state, action) {
     case REMOVE_FILE: {
       const id = action.payload;
       const filterFiles = state.files.filter((file) => file.id !== id);
+
       return {
         ...state,
         files: filterFiles,
@@ -104,14 +105,19 @@ export default function dataReducer(state, action) {
       const filterItemsHasTags = state.files.filter((f) => {
         if (f.tags) {
           const isExist = state.annotated.some((i) => i.id === f.id);
-          if (!isExist) {
-            return f;
+          if (isExist) {
+            const findFile = state.annotated.find((i) => i.id === f.id);
+            console.log("find file", findFile);
+            const filterFiles = state.annotated.filter((i) => i.id == f.id);
+            return [f, ...filterFiles];
+          } else {
+            return [f, ...state.annotated];
           }
         }
       });
       return {
         ...state,
-        annotated: [...filterItemsHasTags, ...state.annotated],
+        annotated: filterItemsHasTags,
       };
     }
     case SPLIT_DATA: {
@@ -124,6 +130,7 @@ export default function dataReducer(state, action) {
     }
     case FINISH_DATASET: {
       const data = action.payload;
+
       return {
         ...state,
         datasets: [data, ...state.datasets],
@@ -141,6 +148,7 @@ export default function dataReducer(state, action) {
       filterItems.splice(findItemIndex, 0, {
         ...findFile,
         ...action.payload,
+        files: action.payload.files.length ? action.payload.files : null,
       });
       return {
         ...state,

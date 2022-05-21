@@ -19,7 +19,7 @@
 }
 
 .datasetUpdated {
-  font-size: .85rem;
+  font-size: 0.85rem;
   color: var(--new-dark-color);
 }
 
@@ -47,4 +47,11 @@
   background-color: #4f4f4f;
   display: block;
   margin-bottom: 3px;
+}
+
+.spinner {
+  position: absolute;
+  top: calc(50% - 1rem);
+  left: calc(50% - 1rem);
+  z-index: 9;
 }
