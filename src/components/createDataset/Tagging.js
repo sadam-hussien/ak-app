@@ -26,6 +26,8 @@ export default function Tagging() {
   const [activeImage, setActiveImage] = useState(findFile);
 
   const [taggingImage, setTaggingImage] = useState(dataStore.files);
+  
+   const [poppedTags, setPoppedTags] = useState([]);
 
   const [addTag, setAddTag] = useState(true);
 
@@ -86,6 +88,35 @@ export default function Tagging() {
     setActiveImage(Object.assign({}, activeImage, { tags }));
     dataDispatch(action_handle_tags({ tags, id: activeImage.id }));
   };
+  
+    const undoHandler = () => {
+    if (activeImage.tags.length > 0) {
+      let tags = activeImage.tags;
+      let popped = tags.pop();
+      setPoppedTags([...poppedTags, popped]);
+
+      setActiveImage({
+        ...activeImage,
+        tags: tags,
+      });
+    }
+  };
+
+  const redoHandler = () => {
+    if (poppedTags.length >= 1) {
+      let tags = poppedTags;
+      let shifted = tags.pop();
+      setPoppedTags([...tags]);
+
+      let NewTags = activeImage.tags;
+      NewTags.push(shifted);
+      setActiveImage({
+        ...activeImage,
+        tags: NewTags,
+      });
+    }
+  };
+
 
   return (
     <div className={`${styles.tagging}`}>
@@ -107,13 +138,13 @@ export default function Tagging() {
             <div
               className={`${styles.taggingBtns} d-flex align-items-center justify-content-center g-2`}
             >
-              <button type="button" className={styles.doBtn}>
+              <button type="button" className={styles.doBtn}  onClick={undoHandler}>
                 undo
                 <span>
                   <UndoOutlined />
                 </span>
               </button>
-              <button type="button" className={styles.doBtn}>
+              <button type="button" className={styles.doBtn}  onClick={redoHandler}>
                 redo
                 <span>
                   <RedoOutlined />
