@@ -43,8 +43,8 @@ export default function TestingModel() {
           <h5 className={`text-capitalize text-center ${styles.title}`}>
             testing model - {item.name}
           </h5>
-          <div className="row">
-            <div className="col-8">
+          <div className="row g-4">
+            <div className="col-md-8">
               {item.files ? (
                 <div>
                   <img
@@ -57,7 +57,7 @@ export default function TestingModel() {
                 <FileUploader id={id} />
               )}
             </div>
-            <div className="col-4">
+            <div className="col-md-4">
               <h6 className={`text-capitalize ${styles.info}`}>
                 model: {item.name}
               </h6>

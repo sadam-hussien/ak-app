@@ -26,24 +26,12 @@ export default function Tagging() {
   const [activeImage, setActiveImage] = useState(findFile);
 
   const [taggingImage, setTaggingImage] = useState(dataStore.files);
-  
-   const [poppedTags, setPoppedTags] = useState([]);
+
+  const [poppedTags, setPoppedTags] = useState([]);
 
   const [addTag, setAddTag] = useState(true);
 
   const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   if (activeImage.tags) {
-  //     const filterTag = dataStore.files.filter((item) => item.tags);
-  //     setTaggingImage(filterTag);
-  //     setAddTag(false);
-  //   } else {
-  //     const filterTag = dataStore.files.filter((item) => !item.tags);
-  //     setTaggingImage(filterTag);
-  //     setAddTag(true);
-  //   }
-  // }, []);
 
   const nextImage = () => {
     const findActiveImage = taggingImage.findIndex(
@@ -88,8 +76,8 @@ export default function Tagging() {
     setActiveImage(Object.assign({}, activeImage, { tags }));
     dataDispatch(action_handle_tags({ tags, id: activeImage.id }));
   };
-  
-    const undoHandler = () => {
+
+  const undoHandler = () => {
     if (activeImage.tags.length > 0) {
       let tags = activeImage.tags;
       let popped = tags.pop();
@@ -117,11 +105,10 @@ export default function Tagging() {
     }
   };
 
-
   return (
     <div className={`${styles.tagging}`}>
       <div className="row flex-nowrap g-0">
-        <div className="col page-content p-t p-b">
+        <div className="col-12 col-lg page-content p-t p-b">
           <div className={`p-l p-r ${styles.taggingRight}`}>
             <TaggingHead next={nextImage} prev={prevImage} />
             <ReactPictureTagger
@@ -138,13 +125,21 @@ export default function Tagging() {
             <div
               className={`${styles.taggingBtns} d-flex align-items-center justify-content-center g-2`}
             >
-              <button type="button" className={styles.doBtn}  onClick={undoHandler}>
+              <button
+                type="button"
+                className={styles.doBtn}
+                onClick={undoHandler}
+              >
                 undo
                 <span>
                   <UndoOutlined />
                 </span>
               </button>
-              <button type="button" className={styles.doBtn}  onClick={redoHandler}>
+              <button
+                type="button"
+                className={styles.doBtn}
+                onClick={redoHandler}
+              >
                 redo
                 <span>
                   <RedoOutlined />

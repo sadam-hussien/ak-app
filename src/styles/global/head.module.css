@@ -1,5 +1,6 @@
 .head {
   margin-bottom: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .headTitle {

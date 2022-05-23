@@ -14,9 +14,10 @@ export default function DataCleaningHead({ changeTab, activeTab }) {
     }
     return "";
   };
+
   return (
     <div
-      className={`d-flex align-items-center justify-content-between ${styles.dataCleaningHead}`}
+      className={`d-flex align-items-center justify-content-between flex-wrap ${styles.dataCleaningHead}`}
     >
       <div className={`${styles.dataCleaningHeadTabWrapper}`}>
         <button

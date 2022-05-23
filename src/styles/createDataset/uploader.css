@@ -32,6 +32,7 @@
   border: 2px dashed var(--new-gray-color);
 }
 
+
 .labelIcon {
   --w: 150px;
   width: var(--w);
@@ -42,13 +43,34 @@
   margin: auto;
 }
 
+@media (max-width: 576px) {
+  .labelIcon {
+    width: 110px;
+    height: 110px;
+    font-size: 70px;
+  }
+}
+
 .labelTitle {
   font-size: 2rem !important;
   margin: var(--space-sm) 0 var(--space-md);
 }
 
+@media (max-width: 991px) {
+  .labelWrapperData .labelTitle {
+    font-size: 1.7rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  
+.labelTitle {
+  font-size: 1.5rem !important;
+}
+}
+
 .labelBtns {
-  gap: var(--space-lg);
+  gap: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-lg);
 }
 
@@ -71,7 +93,8 @@
 }
 
 .labelFooter {
-  gap: var(--space-lg)
+  gap: var(--space-md) var(--space-lg);
+  white-space: nowrap;
 }
 
 .labelFooterTitle {

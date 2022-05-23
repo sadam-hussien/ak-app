@@ -6,11 +6,25 @@ import Logo from "./Logo";
 
 import User from "./User";
 
+import { MenuOpenOutlined } from "@mui/icons-material";
+
 import styles from "../../styles/layout/header.module.css";
 
 export default function Header() {
   const { authStore } = useContext(Store);
   const { auth } = authStore;
+  const toggleSideBar = () => {
+    const rootEle = document.querySelector(":root");
+    const getSidebarWidth = getComputedStyle(
+      document.querySelector(".sidebar-container")
+    ).width;
+
+    if (getSidebarWidth === "300px") {
+      rootEle.style.setProperty("--sidebar-width", "0");
+    } else {
+      rootEle.style.setProperty("--sidebar-width", "300px");
+    }
+  };
   return (
     <header
       className={`d-flex align-items-center p-l p-r fixed-top ${styles.header}`}
@@ -19,7 +33,16 @@ export default function Header() {
         <div
           className={`d-flex justify-content-between align-items-center ${styles.headerContent}`}
         >
-          <Logo />
+          <div className="d-flex align-items-center">
+            <button
+              onClick={toggleSideBar}
+              type="button"
+              className={`d-lg-none border-0 p-0 ${styles.toggleSidebar}`}
+            >
+              <MenuOpenOutlined fontSize="large" />
+            </button>
+            <Logo />
+          </div>
           {auth && <User />}
         </div>
       </div>

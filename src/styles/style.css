@@ -40,6 +40,18 @@
   --n-success-color: #2cda74;
 }
 
+@media (min-width: 992px) {
+  :root {
+  --sidebar-width: 300px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  :root {
+    --sidebar-width: 0;
+  }
+}
+
 body {
   /* color: var(--text-color); */
   color: var(--n-text-color-light-bg);
@@ -73,6 +85,17 @@ a:hover {
   padding-right: 80px;
 }
 
+@media (max-width: 576px) {
+  .p-l {
+    padding-left: 30px;
+  }
+
+  .p-r {
+    padding-right: 30px;
+  }
+
+}
+
 .sidebar {
   width: var(--sidebar-width);
   transition: 0.3s;
@@ -80,6 +103,14 @@ a:hover {
 .page-content {
   transition: 0.3s;
   width: calc(100% - var(--sidebar-width));
+}
+
+@media (max-width: 991px) {
+ 
+.page-content {
+  width: 100% !important;
+}
+ 
 }
 
 .our-btn {

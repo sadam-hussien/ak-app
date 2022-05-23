@@ -10,7 +10,7 @@ import styles from "../../styles/layout/sidebar.module.css";
 
 export default function SideBar() {
   return (
-    <aside className={`${styles.sidebar}`}>
+    <aside className={`sidebar-container ${styles.sidebar}`}>
       <div className="container h-100">
         <div className={`h-100 d-flex flex-column ${styles.sidebarContent}`}>
           <NavLink to="/" className={`${styles.toggleSidebar}`}>

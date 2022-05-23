@@ -21,7 +21,7 @@ export default function Layout({ children }) {
           )}
         </div>
       )}
-      <div className="col page-content">
+      <div className="col-12 col-lg page-content">
         <Header />
         <main>{children}</main>
       </div>

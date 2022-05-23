@@ -60,6 +60,8 @@ export default function CreateDataSet() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              flexWrap: "wrap",
+              gap: "10px",
             }}
             style={{
               maxWidth: "330px",
@@ -69,7 +71,10 @@ export default function CreateDataSet() {
             }}
             labelStyle={{ color: "var(--new-dark-color)", marginBottom: "0" }}
           />
-          <div className="d-flex align-items-center justify-content-between">
+          <div
+            className="d-flex align-items-center justify-content-between flex-wrap"
+            style={{ gap: "10px" }}
+          >
             <label
               className={Styles.label}
               style={{ color: "var(--new-dark-color)" }}
@@ -82,7 +87,12 @@ export default function CreateDataSet() {
                 { label: "segmentaion", value: "segmentation" },
                 { label: "classification", value: "classification" },
               ]}
-              style={{ marginBottom: "0", flex: 1, maxWidth: "330px" }}
+              style={{
+                marginBottom: "0",
+                flex: 1,
+                maxWidth: "330px",
+                minWidth: "330px",
+              }}
             />
           </div>
 

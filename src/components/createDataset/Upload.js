@@ -40,11 +40,11 @@ export default function Upload({ name }) {
         </h6>
         <div className="row justify-content-center">
           <div className="col-10">
-            <div className="row flex-nowrap justify-content-between">
+            <div className="row g-4 flex-sm-nowrap justify-content-between">
               {boxes.map((item, index) => (
                 <div
                   key={index}
-                  className={`col-5 text-center ${styles.uploadImageBox}`}
+                  className={`col-sm-5 text-center ${styles.uploadImageBox}`}
                 >
                   <h6
                     className={`text-capitalize d-flex justify-content-center align-items-center ${styles.uploadImageBoxTitle}`}

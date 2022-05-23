@@ -25,7 +25,7 @@ export default function Models() {
       <div className="row g-5 ">
         {modelStore.models.length &&
           modelStore.models.map((item, index) => (
-            <div key={index} className="col-4">
+            <div key={index} className="col-sm-6 col-md-4">
               <Card data={item} route="models" />
             </div>
           ))}

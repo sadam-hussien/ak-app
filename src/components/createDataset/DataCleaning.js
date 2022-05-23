@@ -23,7 +23,9 @@ export default function DataCleaning() {
       <Uploader dataCleaning />
       {/* all  */}
       {activeTab === "all" ? (
-        <div className={`row row-cols-5 gy-4 ${styles.dataCleaningWrappers}`}>
+        <div
+          className={`row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 gy-4 ${styles.dataCleaningWrappers}`}
+        >
           {dataStore.files.map((file) => (
             <div className="col" key={file.id}>
               <DataCleaningImage file={file} />
@@ -31,7 +33,9 @@ export default function DataCleaning() {
           ))}
         </div>
       ) : activeTab === "annotated" ? (
-        <div className={`row row-cols-5 gy-4 ${styles.dataCleaningWrappers}`}>
+        <div
+          className={`row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 gy-4 ${styles.dataCleaningWrappers}`}
+        >
           {dataStore.annotated.map((file) => (
             <div className="col" key={file.id}>
               <DataCleaningImage file={file} />
@@ -39,7 +43,9 @@ export default function DataCleaning() {
           ))}
         </div>
       ) : (
-        <div className={`row row-cols-5 gy-4 ${styles.dataCleaningWrappers}`}>
+        <div
+          className={`row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 gy-4 ${styles.dataCleaningWrappers}`}
+        >
           {dataStore.files
             .filter((f) => !f.tags)
             .map((file) => (

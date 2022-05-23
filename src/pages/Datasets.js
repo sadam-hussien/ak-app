@@ -29,7 +29,7 @@ export default function Datasets() {
       <div className="row g-5 ">
         {dataStore.datasets.length &&
           dataStore.datasets.map((item, index) => (
-            <div key={index} className="col-4">
+            <div key={index} className="col-sm-6 col-md-4">
               <Card data={item} route="datasets" />
             </div>
           ))}

@@ -48,6 +48,7 @@
 
 .dataCleaningHead {
   margin-bottom: var(--space-md);
+  gap: var(--space-md);
 }
 
 .dataCleaningHeadTab {
@@ -78,4 +79,5 @@
   border: none;
   text-transform: capitalize;
   font-weight: 600;
+  margin-left: auto;
 }

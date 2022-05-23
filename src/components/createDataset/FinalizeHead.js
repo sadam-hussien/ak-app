@@ -59,7 +59,7 @@ export default function FinalizeHead() {
   };
 
   return (
-    <div className={`d-flex justify-content-between align-items-center`}>
+    <div className={`d-flex justify-content-between align-items-center flex-wrap`} style={{gap: "20px"}}>
       <h5 className={`text-capitalize m-0 ${Styles.datasetName}`}>
         dataset name: <span>{dataStore.name || state?.name}</span>
       </h5>

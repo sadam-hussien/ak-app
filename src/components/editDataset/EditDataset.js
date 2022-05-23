@@ -101,7 +101,13 @@ export default function EditDataset() {
                 { label: "segmentaion", value: "segmentation" },
                 { label: "classification", value: "classification" },
               ]}
-              style={{ marginBottom: "0", flex: 1, maxWidth: "330px" }}
+              style={{
+                marginBottom: "0",
+                flex: 1,
+                maxWidth: "330px",
+
+                minWidth: "330px",
+              }}
             />
           </div>
 

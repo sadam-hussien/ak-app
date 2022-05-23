@@ -7,6 +7,7 @@
   font-weight: bold;
   margin-right: 10px !important;
   line-height: 0;
+  white-space: nowrap;
   /* min-width: 150px; */
 }
 
@@ -29,6 +30,7 @@
   margin-left: 40px;
   color: var(--new-dark-color);
   font-weight: bold;
+  margin-top: 40px;
 }
 
 .datasetImgDetails {

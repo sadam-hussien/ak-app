@@ -53,7 +53,9 @@ export default function Uploader({ dataCleaning }) {
   // label template
   const labelTemplate = `
     <div class="labelWrapper text-center ${
-      dataCleaning ? "d-flex align-items-center justify-content-between" : ""
+      dataCleaning
+        ? "d-flex align-items-center justify-content-md-between flex-wrap flex-md-nowrap justify-content-center labelWrapperData"
+        : ""
     }">
       ${
         dataCleaning
@@ -65,7 +67,7 @@ export default function Uploader({ dataCleaning }) {
       `
       }
       <h2 class="labelTitle text-center text-capitalize">drag and drop images &amp; <br /> annotations</h2>
-      <div class="d-flex align-items-center justify-content-center labelBtns ${
+      <div class="d-flex align-items-center justify-content-center flex-wrap labelBtns ${
         dataCleaning ? "mb-0" : ""
       }">
         <div class="labelBtn">
@@ -87,7 +89,7 @@ export default function Uploader({ dataCleaning }) {
           ? ""
           : `
       
-      <div class="labelFooter text-capitalize d-flex align-items-center justify-content-center">
+      <div class="labelFooter text-capitalize d-flex align-items-center justify-content-center flex-wrap">
         <div class="labelFooterTitle">
           <span><ion-icon name="image-outline"></ion-icon></span>
           images

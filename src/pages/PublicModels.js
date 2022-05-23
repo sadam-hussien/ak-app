@@ -12,7 +12,7 @@ export default function PublicModels() {
       {/* items  */}
       <div className="row g-5 ">
         {publicModels.map((item) => (
-          <div key={item.id} className="col-4">
+          <div key={item.id} className="col-sm-6 col-md-4">
             <Card data={item} route="models" />
           </div>
         ))}

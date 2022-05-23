@@ -10,7 +10,7 @@ import Styles from "../../styles/createDataset/steps.module.css";
 
 export default function CreateSteps() {
   return (
-    <aside className={`${styles.sidebar}`}>
+    <aside className={`${styles.sidebar} sidebar-container`}>
       <div className="container h-100">
         <div className={`${Styles.stepsWrapper}`}>
           <ul className={`list-unstyled m-0 p-0 ${Styles.steps}`}>

@@ -1,7 +1,7 @@
 .authContent {
   border: 2px solid var(--border-color);
   border-radius: var(--radius);
-    margin: 65px auto 0;
+    margin: 65px auto 40px;
     max-width: 410px;
     min-height: 537px;
     padding: 44px 30px;

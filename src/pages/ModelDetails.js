@@ -35,7 +35,7 @@ export default function ModelDetails() {
 
       {/* items  */}
       <div className="row g-5 ">
-        <div className="col-5">
+        <div className="col-md-5">
           {/* box  */}
           <div className={`${styles.detailsBox} d-flex align-items-center`}>
             <h5 className={`m-0 text-capitalize ${styles.detailsTitle}`}>
@@ -96,7 +96,7 @@ export default function ModelDetails() {
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-md-6">
           <div className={`${styles.detailsBox} d-flex align-items-center`}>
             <h5 className={`m-0 text-capitalize ${styles.detailsTitle}`}>
               model status :

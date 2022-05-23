@@ -39,7 +39,7 @@ export default function DatasetDetails() {
 
       {/* items  */}
       <div className="row g-5 ">
-        <div className="col-6">
+        <div className="col-md-7">
           {/* box  */}
           <div className={`${styles.detailsBox} d-flex align-items-center`}>
             <h5 className={`m-0 text-capitalize ${styles.detailsTitle}`}>
@@ -92,7 +92,7 @@ export default function DatasetDetails() {
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-md-5">
           <div className={`${styles.datasetImgDetails} position-relative`}>
             {item.files && (
               <img

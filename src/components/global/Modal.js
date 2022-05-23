@@ -25,7 +25,7 @@ export default function Modal({
           {!noContainer ? (
             <div className="container">
               <div className="row justify-content-center">
-                <div className={`${col ? col : "col-8"} `}>
+                <div className={`${col ? col : "col-md-10 col-lg-8"} `}>
                   <div className={`${styles.modalContent}`}>
                     {/* start header */}
                     <div

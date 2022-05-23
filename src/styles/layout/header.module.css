@@ -14,3 +14,9 @@
 .logo:hover {
   color: var(--bs-white);
 }
+
+.toggleSidebar {
+  margin-right: var(--space-sm);
+  background: transparent;
+  color: #fff;
+}
