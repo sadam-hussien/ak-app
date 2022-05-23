@@ -15,7 +15,7 @@ import * as Yup from "yup";
 import { NormalField, CheckField, Btn, AlertToast } from "../../global";
 
 // api
-import { server_login } from "../../../server/auth";
+import { server_register } from "../../../server/auth";
 
 export default function RegisterForm() {
   const [loading, setLoading] = useState(false);
@@ -40,18 +40,24 @@ export default function RegisterForm() {
   // submit form
   const submitForm = (values, action) => {
     setLoading(true);
-    setTimeout(() => {
-      // save in store
-      authDispatch(
-        action_login({
-          token: "1dlkjfdkfjdfj",
-          user: { name: "Rahul" },
-        })
-      );
-      console.log(values);
-      action.setSubmitting(false);
-      navigate("/");
-    }, 300);
+    const data = {
+      UserName: values.firstName,
+      userEmail: values.email,
+      UserPassword: values.password,
+    };
+    server_register(data)
+      .then((response) => {
+        // authDispatch(
+        //   action_login({
+        //     token: response.data.data.auth_key,
+        //     user: { name: "Rahul" },
+        //   })
+        // );
+      })
+      .catch((err) => {
+        setLoading(false);
+        action.setSubmitting(false);
+      });
   };
 
   return (
