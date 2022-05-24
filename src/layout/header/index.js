@@ -19,10 +19,14 @@ export default function Header() {
       document.querySelector(".sidebar-container")
     ).width;
 
-    if (getSidebarWidth === "300px") {
+    if (getSidebarWidth > "1px") {
       rootEle.style.setProperty("--sidebar-width", "0");
     } else {
-      rootEle.style.setProperty("--sidebar-width", "300px");
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        rootEle.style.setProperty("--sidebar-width", "100%");
+      } else {
+        rootEle.style.setProperty("--sidebar-width", "300px");
+      }
     }
   };
   return (

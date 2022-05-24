@@ -88,6 +88,8 @@ export default function CreateModel() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              flexWrap: "wrap",
+              gap: "10px",
             }}
             style={{
               maxWidth: "330px",
@@ -98,7 +100,7 @@ export default function CreateModel() {
             labelStyle={{ color: "var(--new-dark-color)", marginBottom: "0" }}
           />
           <div
-            className={`d-flex align-items-center justify-content-between ${Styles.formGroup}`}
+            className={`d-flex align-items-start align-items-sm-center justify-content-between flex-column flex-sm-row ${Styles.formGroup}`}
           >
             <label
               className={Styles.label}
@@ -112,11 +114,17 @@ export default function CreateModel() {
                 { label: "segmentaion", value: "segmentation" },
                 { label: "classification", value: "classification" },
               ]}
-              style={{ marginBottom: "0", flex: 1, maxWidth: "330px" }}
+              style={{
+                marginBottom: "0",
+                flex: 1,
+                maxWidth: "330px",
+                width: "100%",
+              }}
             />
           </div>
           <div
-            className={`d-flex align-items-center justify-content-between ${Styles.formGroup}`}
+            className={`d-flex align-items-start align-items-sm-center justify-content-between flex-column flex-sm-row ${Styles.formGroup}`}
+            style={{ gap: "0px" }}
           >
             <label
               className={Styles.label}
@@ -130,11 +138,16 @@ export default function CreateModel() {
                 { label: "model 1", value: "model one" },
                 { label: "model two", value: "model tow" },
               ]}
-              style={{ marginBottom: "0", flex: 1, maxWidth: "330px" }}
+              style={{
+                marginBottom: "0",
+                flex: 1,
+                maxWidth: "330px",
+                width: "100%",
+              }}
             />
           </div>
           <div
-            className={`d-flex align-items-center justify-content-between ${Styles.formGroup}`}
+            className={`d-flex align-items-sm-start align-items-sm-center justify-content-between flex-column flex-sm-row ${Styles.formGroup}`}
           >
             <label
               className={Styles.label}
@@ -148,14 +161,19 @@ export default function CreateModel() {
                 { label: "dataset 1", value: "dataset one" },
                 { label: "dataset two", value: "dataset tow" },
               ]}
-              style={{ marginBottom: "0", flex: 1, maxWidth: "330px" }}
+              style={{
+                marginBottom: "0",
+                flex: 1,
+                maxWidth: "330px",
+                width: "100%",
+              }}
             />
           </div>
 
           <div className={`${styles.hyperParams}`}>
             <h5 className={`${styles.secTitle}`}>hyper parameters</h5>
             <div className="row">
-              <div className="col-4">
+              <div className="col-sm-6 col-md-4">
                 <div
                   className={`d-flex align-items-center ${Styles.formGroup}`}
                 >
@@ -178,7 +196,7 @@ export default function CreateModel() {
                 </div>
               </div>
 
-              <div className="col-4">
+              <div className="col-sm-6 col-md-4">
                 <div
                   className={`d-flex align-items-center ${Styles.formGroup}`}
                 >
@@ -201,7 +219,7 @@ export default function CreateModel() {
                 </div>
               </div>
 
-              <div className="col-4">
+              <div className="col-sm-6 col-md-4">
                 <div
                   className={`d-flex align-items-center ${Styles.formGroup}`}
                 >
@@ -224,7 +242,7 @@ export default function CreateModel() {
                 </div>
               </div>
 
-              <div className="col-4">
+              <div className="col-sm-6 col-md-4">
                 <div
                   className={`d-flex align-items-center ${Styles.formGroup}`}
                 >
@@ -247,7 +265,7 @@ export default function CreateModel() {
                 </div>
               </div>
 
-              <div className="col-4">
+              <div className="col-sm-6 col-md-4">
                 <div
                   className={`d-flex align-items-center ${Styles.formGroup}`}
                 >
@@ -270,7 +288,7 @@ export default function CreateModel() {
                 </div>
               </div>
 
-              <div className="col-4">
+              <div className="col-sm-6 col-md-4">
                 <div
                   className={`d-flex align-items-center ${Styles.formGroup}`}
                 >

@@ -66,7 +66,11 @@ export default function Navbar() {
                 <NavLink
                   to={i.url}
                   key={idx}
-                  // className={`${styles.linkItemInner}`}
+                  onClick={() =>
+                    document
+                      .querySelector(":root")
+                      .style.setProperty("--sidebar-width", "0")
+                  }
                   className={({ isActive }) =>
                     isActive
                       ? `${styles.activeLink} ${styles.linkItemInner}`

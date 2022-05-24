@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, Fragment } from "react";
 
 import {
   action_toggle_modal,
@@ -110,6 +110,17 @@ export default function Tagging() {
       <div className="row flex-nowrap g-0">
         <div className="col-12 col-lg page-content p-t p-b">
           <div className={`p-l p-r ${styles.taggingRight}`}>
+            <div className="d-block d-lg-none mb-5">
+              <TaggingOptions
+                undoHandler={undoHandler}
+                redoHandler={redoHandler}
+                activeImage={activeImage}
+                handleEditTagsContinue={handleEditTagsContinue}
+                loading={loading}
+                handleContinue={handleContinue}
+                addTag={addTag}
+              />
+            </div>
             <TaggingHead next={nextImage} prev={prevImage} />
             <ReactPictureTagger
               imageSrc={window.URL.createObjectURL(activeImage.file)}
@@ -120,70 +131,86 @@ export default function Tagging() {
             />
           </div>
         </div>
-        <div className="sidebar">
+        <div className="sidebar d-none d-lg-block">
           <div className={`${styles.sidebar} p-t p-b d-flex flex-column`}>
-            <div
-              className={`${styles.taggingBtns} d-flex align-items-center justify-content-center g-2`}
-            >
-              <button
-                type="button"
-                className={styles.doBtn}
-                onClick={undoHandler}
-              >
-                undo
-                <span>
-                  <UndoOutlined />
-                </span>
-              </button>
-              <button
-                type="button"
-                className={styles.doBtn}
-                onClick={redoHandler}
-              >
-                redo
-                <span>
-                  <RedoOutlined />
-                </span>
-              </button>
-            </div>
-
-            <span className={`form-control ${styles.input}`}>
-              {activeImage?.tags?.length || 0}
-            </span>
-            <div className="mt-auto d-flex justify-content-end">
-              {!addTag ? (
-                <button
-                  type="button"
-                  className={` text-capitalize ${styles.done}`}
-                  onClick={handleEditTagsContinue}
-                >
-                  {loading ? (
-                    <div className="spinner-border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  ) : (
-                    "done editing tagging"
-                  )}
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className={` text-capitalize ${styles.done}`}
-                  onClick={handleContinue}
-                >
-                  {loading ? (
-                    <div className="spinner-border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  ) : (
-                    "done tagging"
-                  )}
-                </button>
-              )}
-            </div>
+            <TaggingOptions
+              undoHandler={undoHandler}
+              redoHandler={redoHandler}
+              activeImage={activeImage}
+              handleEditTagsContinue={handleEditTagsContinue}
+              loading={loading}
+              handleContinue={handleContinue}
+              addTag={addTag}
+            />
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function TaggingOptions({
+  undoHandler,
+  redoHandler,
+  activeImage,
+  handleEditTagsContinue,
+  loading,
+  handleContinue,
+  addTag,
+}) {
+  return (
+    <Fragment>
+      <div
+        className={`${styles.taggingBtns} d-flex align-items-center justify-content-center g-2`}
+      >
+        <button type="button" className={styles.doBtn} onClick={undoHandler}>
+          undo
+          <span>
+            <UndoOutlined />
+          </span>
+        </button>
+        <button type="button" className={styles.doBtn} onClick={redoHandler}>
+          redo
+          <span>
+            <RedoOutlined />
+          </span>
+        </button>
+      </div>
+
+      <span className={`form-control ${styles.input}`}>
+        {activeImage?.tags?.length || 0}
+      </span>
+      <div className="mt-auto d-flex justify-content-end">
+        {!addTag ? (
+          <button
+            type="button"
+            className={` text-capitalize ${styles.done}`}
+            onClick={handleEditTagsContinue}
+          >
+            {loading ? (
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              "done editing tagging"
+            )}
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={` text-capitalize ${styles.done}`}
+            onClick={handleContinue}
+          >
+            {loading ? (
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              "done tagging"
+            )}
+          </button>
+        )}
+      </div>
+    </Fragment>
   );
 }
