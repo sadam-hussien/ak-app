@@ -184,7 +184,11 @@ export default function ModelDetails() {
             style={{ marginLeft: "15%", width: "50%" }}
           >
             <Link
-              to={`/testing-model/${item.id}`}
+              to={`${
+                item.trainingStatus == 100
+                  ? `/testing-model/${item.id}`
+                  : `/models/${id}`
+              }`}
               className={`our-btn d-inline-flex ${styles.editBtn} text-capitalize`}
               style={{
                 marginLeft: "0",

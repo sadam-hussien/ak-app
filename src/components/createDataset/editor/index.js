@@ -55,7 +55,7 @@ const ReactPictureTagger = ({
 
   function toggleAddTagMode() {
     if (!addTagMode) {
-      setTagsVisible(false);
+      setTagsVisible(true);
       setEditingTag(null);
     }
     setAddTagMode(!addTagMode);

@@ -54,7 +54,7 @@ export default function TestingModel() {
                   />
                 </div>
               ) : (
-                <FileUploader id={id} />
+                <FileUploader id={id} showFolder="false" />
               )}
             </div>
             <div className="col-md-4">

@@ -8,13 +8,20 @@ import { modal_add_dataset } from "../constants";
 
 import { CreateDataSet } from "../components/createDataset";
 
+import { useFetcher } from "../hooks";
+
+import { server_get_dataset } from "../server/datasets";
+
 export default function Datasets() {
   const { globalDispatch, globalStore, dataStore, dataDispatch } =
     useContext(Store);
 
+  const { fetchItems } = useFetcher({ callback: server_get_dataset });
+
   useEffect(() => {
     dataDispatch(action_reset_dataset());
   }, [dataDispatch]);
+
   return (
     <section className="p-l p-r p-b p-t">
       <Head

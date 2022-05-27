@@ -32,7 +32,6 @@
   border: 2px dashed var(--new-gray-color);
 }
 
-
 .labelIcon {
   --w: 150px;
   width: var(--w);
@@ -63,10 +62,9 @@
 }
 
 @media (max-width: 576px) {
-  
-.labelTitle {
-  font-size: 1.5rem !important;
-}
+  .labelTitle {
+    font-size: 1.5rem !important;
+  }
 }
 
 .labelBtns {
@@ -118,5 +116,9 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  background: rgba(0 0 0 /.1);
+  background: rgba(0 0 0 /0.1);
+}
+
+.hide-important {
+  display: none;
 }

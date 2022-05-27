@@ -39,38 +39,23 @@ export default function LoginForm() {
   // submit form
   const submitForm = (values, action) => {
     setLoading(true);
-    setTimeout(() => {
-      // save in store
-      authDispatch(
-        action_login({
-          token: "1dlkjfdkfjdfj",
-          user: { name: "Rahul" },
-        })
-      );
-      console.log(values);
-      action.setSubmitting(false);
-      navigate("/");
-    }, 300);
-    // request real api (put your api)
-    // server_login(values)
-    //   .then((response) => {
-    //     if (response.status === 200) {
-    //       // store user data and token in my store
-    //       authDispatch(
-    //         action_login({
-    //           token: response?.data?.access_token,
-    //           user: response?.data?.user,
-    //         })
-    //       );
-    //       navigate("/");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log("e", err);
-    //     setLoading(false);
-    //     action.setSubmitting(false);
-    //     AlertToast("error", "invalid credentials");
-    //   });
+    server_login(values)
+      .then((response) => {
+        authDispatch(
+          action_login({
+            token: response.data.data.auth_key,
+            user: response.data.data,
+          })
+        );
+      })
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        setLoading(false);
+        action.setSubmitting(false);
+        AlertToast("error", err.data);
+      });
   };
 
   return (

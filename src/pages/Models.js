@@ -8,8 +8,14 @@ import { modal_create_model } from "../constants";
 
 import { CreateModel } from "../components/crud";
 
+import { useFetcher } from "../hooks";
+
+import { server_get_models } from "../server/models";
+
 export default function Models() {
   const { globalDispatch, globalStore, modelStore } = useContext(Store);
+
+  const { fetchItems } = useFetcher({ callback: server_get_models });
 
   return (
     <section className="p-l p-r p-b p-t">

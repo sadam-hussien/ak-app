@@ -18,7 +18,7 @@ import { useDebouncedCallback } from "use-debounce";
 // Register the plugins
 registerPlugin(FilePondPluginFileValidateType, FilePondPluginFileEncode);
 
-export default function Uploader({ id, dataCleaning }) {
+export default function Uploader({ id, dataCleaning, showFolder }) {
   const fileRef = useRef();
   // store
   const { modelDispatch } = useContext(Store);
@@ -62,7 +62,7 @@ export default function Uploader({ id, dataCleaning }) {
           </span>
           select files
         </div>
-        <div class="labelBtn">
+        <div class="labelBtn ${showFolder == "false" ? "hide-important" : ""}" >
           <span class="labelBtnIcon">
           <ion-icon name="folder-open-outline"></ion-icon>
           </span>

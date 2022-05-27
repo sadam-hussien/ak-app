@@ -42,21 +42,25 @@ export default function RegisterForm() {
     setLoading(true);
     const data = {
       UserName: values.firstName,
-      userEmail: values.email,
+      UserEmail: values.email,
       UserPassword: values.password,
     };
     server_register(data)
       .then((response) => {
-        // authDispatch(
-        //   action_login({
-        //     token: response.data.data.auth_key,
-        //     user: { name: "Rahul" },
-        //   })
-        // );
+        authDispatch(
+          action_login({
+            token: response.data.data.auth_key,
+            user: response.data.data,
+          })
+        );
+      })
+      .then(() => {
+        navigate("/");
       })
       .catch((err) => {
         setLoading(false);
         action.setSubmitting(false);
+        AlertToast("error", "please try again later");
       });
   };
 
