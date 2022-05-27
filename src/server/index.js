@@ -4,7 +4,7 @@ export default function Api() {
   const appClient = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
     headers: {
-      Authorization: `Bearer ${
+      Authorization: `Token ${
         localStorage.getItem("token")
           ? JSON.parse(localStorage.getItem("token"))
           : null

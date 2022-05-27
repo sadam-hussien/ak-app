@@ -1,7 +1,7 @@
 import Api from "../index";
 
 export function server_create_dataset(data) {
-  return Api().post("datasets/", data);
+  return Api().post("api/datasets/", data);
 }
 
 export function server_get_dataset() {

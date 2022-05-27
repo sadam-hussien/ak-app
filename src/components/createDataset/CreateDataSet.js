@@ -45,7 +45,7 @@ export default function CreateDataSet() {
 
   return (
     <Formik
-      initialValues={{ name: "", tags: "segmentation" }}
+      initialValues={{ name: "", tags: "Segmentation" }}
       onSubmit={(values, actions) => submitForm(values, actions)}
       validationSchema={schema}
     >
@@ -84,8 +84,8 @@ export default function CreateDataSet() {
             <SelectField
               name="tags"
               options={[
-                { label: "segmentaion", value: "segmentation" },
-                { label: "classification", value: "classification" },
+                { label: "segmentaion", value: "Segmentation" },
+                { label: "classification", value: "Classification" },
               ]}
               style={{
                 marginBottom: "0",

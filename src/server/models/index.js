@@ -5,8 +5,5 @@ export function server_create_models(data) {
 }
 
 export function server_get_models() {
-  const params = {
-    is_public: true,
-  };
-  return Api().get("api/models/", { params });
+  return Api().get("api/models/?is_public=true");
 }

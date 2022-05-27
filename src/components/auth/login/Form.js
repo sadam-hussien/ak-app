@@ -50,6 +50,7 @@ export default function LoginForm() {
       })
       .then(() => {
         navigate("/");
+        AlertToast("success", "User logged in successfully.");
       })
       .catch((err) => {
         setLoading(false);

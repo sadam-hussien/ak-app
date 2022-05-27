@@ -60,7 +60,8 @@ export default function Uploader({ id, dataCleaning, showFolder }) {
           <span class="labelBtnIcon">
             <ion-icon name="document-outline"></ion-icon>
           </span>
-          select files
+          ${showFolder == "false" ? "select file" : "select files"}
+    
         </div>
         <div class="labelBtn ${showFolder == "false" ? "hide-important" : ""}" >
           <span class="labelBtnIcon">
@@ -78,11 +79,12 @@ export default function Uploader({ id, dataCleaning, showFolder }) {
       <div class="labelFooter text-capitalize d-flex align-items-center justify-content-center flex-wrap">
         <div class="labelFooterTitle">
           <span><ion-icon name="image-outline"></ion-icon></span>
-          images
+          ${showFolder == "false" ? "image" : "images"}
         </div>
         <div class="labelFooterTitle">
           <span><ion-icon name="albums-outline"></ion-icon></span>
-          annotations
+          ${showFolder == "false" ? "annotation" : "annotations"}
+
         </div>
       </div>
       `

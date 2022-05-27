@@ -56,6 +56,7 @@ export default function RegisterForm() {
       })
       .then(() => {
         navigate("/");
+        AlertToast("success", "User registered succesfully.");
       })
       .catch((err) => {
         setLoading(false);
