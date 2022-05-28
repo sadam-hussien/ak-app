@@ -22,7 +22,7 @@ const boxes = [
   },
 ];
 
-export default function Upload({ name }) {
+export default function Upload({ name, id }) {
   const { dataStore } = useContext(Store);
   return (
     <section className={`${styles.upload}`}>
@@ -31,7 +31,7 @@ export default function Upload({ name }) {
       </h5>
 
       <div className={`${styles.uploadArea}`}>
-        <Uploader />
+        <Uploader id={id} />
       </div>
 
       <div className={`${styles.uploadFooter}`}>

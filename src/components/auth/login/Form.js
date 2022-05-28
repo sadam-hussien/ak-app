@@ -44,7 +44,10 @@ export default function LoginForm() {
         authDispatch(
           action_login({
             token: response.data.data.auth_key,
-            user: response.data.data,
+            user: {
+              ...response.data.data,
+              ownerId: response.data.data.userId || response.data.data.user_id,
+            },
           })
         );
       })

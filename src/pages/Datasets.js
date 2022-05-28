@@ -1,8 +1,13 @@
 import React, { useContext, useEffect } from "react";
 
-import { Store, action_toggle_modal, action_reset_dataset } from "../store";
+import {
+  Store,
+  action_toggle_modal,
+  action_reset_dataset,
+  action_get_datasets,
+} from "../store";
 
-import { Head, Card, Modal } from "../components/global";
+import { Head, Card, Modal, PlaceholderLoader } from "../components/global";
 
 import { modal_add_dataset } from "../constants";
 
@@ -19,6 +24,12 @@ export default function Datasets() {
   const { fetchItems } = useFetcher({ callback: server_get_dataset });
 
   useEffect(() => {
+    if (fetchItems.length) {
+      dataDispatch(action_get_datasets(fetchItems));
+    }
+  }, [fetchItems]);
+
+  useEffect(() => {
     dataDispatch(action_reset_dataset());
   }, [dataDispatch]);
 
@@ -32,15 +43,17 @@ export default function Datasets() {
         }
       />
 
-      {/* items  */}
-      <div className="row g-5 ">
-        {dataStore.datasets.length &&
-          dataStore.datasets.map((item, index) => (
+      {fetchItems && fetchItems.length ? (
+        <div className="row g-5 ">
+          {fetchItems.map((item, index) => (
             <div key={index} className="col-sm-6 col-md-4">
               <Card data={item} route="datasets" />
             </div>
           ))}
-      </div>
+        </div>
+      ) : (
+        <PlaceholderLoader />
+      )}
 
       {globalStore.modalStatus.isActive && (
         <Modal title="create a new dataset">

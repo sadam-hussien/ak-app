@@ -19,21 +19,17 @@ export default function DataCleaningImage({ file }) {
         style={{ cursor: "pointer" }}
         onClick={() =>
           globalDispatch(
-            action_toggle_modal({ comp: modal_tagging, id: file.id })
+            action_toggle_modal({ comp: modal_tagging, path: file.path })
           )
         }
       >
-        <img
-          src={window.URL.createObjectURL(file.file)}
-          alt={file.filename}
-          className={`img-fluid`}
-        />
+        <img src={file.path} alt={file.file_name} className={`img-fluid`} />
         <span className={`${styles.dataCleaningImgItemTitle}`}>
-          {file.filename}
+          {file.file_name}
         </span>
       </div>
       <button
-        onClick={() => dataDispatch(action_remove_file(file.id))}
+        onClick={() => dataDispatch(action_remove_file(file.path))}
         className={`${styles.dataCleaningImgItemDelete} position-absolute`}
       >
         <DeleteForeverOutlined />

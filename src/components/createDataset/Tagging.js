@@ -14,14 +14,18 @@ import ReactPictureTagger from "./editor";
 
 import { UndoOutlined, RedoOutlined } from "@mui/icons-material";
 
+import { server_edit_dataset } from "../../server/datasets";
+
+import { AlertToast } from "../global";
+
 import styles from "../../styles/createDataset/tagging.module.css";
 
 export default function Tagging() {
   const { globalStore, dataStore, dataDispatch, globalDispatch } =
     useContext(Store);
-  const { id } = globalStore.modalStatus;
+  const { path } = globalStore.modalStatus;
   // find the element
-  const findFile = dataStore.files.find((f) => f.id === id);
+  const findFile = dataStore.files.find((f) => f.path === path);
 
   const [activeImage, setActiveImage] = useState(findFile);
 
@@ -35,7 +39,7 @@ export default function Tagging() {
 
   const nextImage = () => {
     const findActiveImage = taggingImage.findIndex(
-      (f) => f.id === activeImage.id
+      (f) => f.path === activeImage.path
     );
     const findNextImage =
       taggingImage.length - 1 > findActiveImage ? findActiveImage + 1 : "";
@@ -47,7 +51,7 @@ export default function Tagging() {
 
   const prevImage = () => {
     const findActiveImage = taggingImage.findIndex(
-      (f) => f.id === activeImage.id
+      (f) => f.path === activeImage.path
     );
     const findPrevImage = findActiveImage > 0 ? findActiveImage - 1 : "";
     if (typeof findPrevImage === "number") {
@@ -58,10 +62,19 @@ export default function Tagging() {
 
   const handleContinue = () => {
     setLoading(true);
-    setTimeout(() => {
-      dataDispatch(action_done_tags());
-      globalDispatch(action_toggle_modal({ comp: null }));
-    }, 3000);
+    const data = {
+      DataConfig: { files: dataStore.files },
+    };
+    server_edit_dataset({ data, id: dataStore.createDataset.DatasetId })
+      .then(() => {
+        setLoading(false);
+        dataDispatch(action_done_tags());
+        globalDispatch(action_toggle_modal({ comp: null }));
+      })
+      .catch((err) => {
+        setLoading(false);
+        AlertToast("error", "error ocured, please try again later");
+      });
   };
 
   const handleEditTagsContinue = () => {
@@ -74,7 +87,7 @@ export default function Tagging() {
 
   const tagsUpdated = (tags) => {
     setActiveImage(Object.assign({}, activeImage, { tags }));
-    dataDispatch(action_handle_tags({ tags, id: activeImage.id }));
+    dataDispatch(action_handle_tags({ tags, path: activeImage.path }));
   };
 
   const undoHandler = () => {
@@ -123,9 +136,9 @@ export default function Tagging() {
             </div>
             <TaggingHead next={nextImage} prev={prevImage} />
             <ReactPictureTagger
-              imageSrc={window.URL.createObjectURL(activeImage.file)}
+              imageSrc={activeImage.path}
               tags={activeImage.tags || []}
-              imageAlt={activeImage.filename}
+              imageAlt={activeImage.file_name}
               showTags={true}
               tagsUpdated={tagsUpdated}
             />

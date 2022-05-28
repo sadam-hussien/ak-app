@@ -18,22 +18,21 @@ import { modal_split, modal_tagging } from "../constants";
 
 export default function CreateDatabase() {
   const { state } = useLocation();
-  const from = state?.from;
-  const name = state?.name;
+  const { from, name, id } = state;
 
   // store
   const { globalStore } = useContext(Store);
   const { modalStatus } = globalStore;
 
   // redirect if there is no ceation
-  if (!from || from !== "create") {
+  if (!from || from !== "create" || !id) {
     return <Navigate to="/datasets" />;
   }
 
   return (
     <section className="p-l p-r p-b p-t">
       <CreateDatabaseStepsWrapper>
-        <Upload name={name} />
+        <Upload name={name} id={id} />
         <DataCleaning name={name} />
         <div></div>
         <div></div>

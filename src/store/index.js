@@ -29,6 +29,7 @@ import {
   action_model_reset_files,
   action_Edit_dataset,
   action_finish_edit_dataset,
+  action_get_datasets,
 } from "./actions";
 export {
   action_login,
@@ -50,6 +51,7 @@ export {
   action_model_reset_files,
   action_Edit_dataset,
   action_finish_edit_dataset,
+  action_get_datasets,
 };
 // *****
 

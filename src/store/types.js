@@ -4,6 +4,8 @@ export const LOG_OUT = "LOG_OUT";
 
 export const TOGGLE_MODAL = "TOGGLE_MOdAL";
 
+export const GET_DATASETS = "GET_DATASETS";
+
 export const CREATE_DATASET = "CREATE_DATASET";
 
 export const NEXT_STEP = "NEXT_STEP";

@@ -18,6 +18,7 @@ import {
   RESET_MODEL_FILES,
   EDIT_DATASET,
   FINISH_EDIT_DATASET,
+  GET_DATASETS,
 } from "./types";
 
 export function action_login(data) {
@@ -36,6 +37,13 @@ export function action_logout() {
 export function action_toggle_modal(data) {
   return {
     type: TOGGLE_MODAL,
+    payload: data,
+  };
+}
+
+export function action_get_datasets(data) {
+  return {
+    type: GET_DATASETS,
     payload: data,
   };
 }

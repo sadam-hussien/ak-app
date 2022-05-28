@@ -13,7 +13,7 @@ export default function Card({ data, route }) {
         {data.files && (
           <img
             src={window.URL.createObjectURL(data?.files[0]?.file)}
-            alt={data.name}
+            alt={data.DatasetName}
             className="img-fluid w-100 h-100"
           />
         )}
@@ -70,16 +70,16 @@ export default function Card({ data, route }) {
 
       <div className={`${styles.datasetContent} text-center`}>
         <h5 className={`${styles.datasetTitle} text-capitalize`}>
-          {data.name}
+          {data.DatasetName}
         </h5>
         <span
           className={`${styles.datasetUpdated} d-flex align-items-center justify-content-center text-center text-capitalize`}
         >
           <span>last edited:</span>
-          <span>{dateHandler(new Date())}</span>
+          <span>{dateHandler(data.UpdatedAt)}</span>
         </span>
         <Link
-          to={`/${route}/${data.id}`}
+          to={`/${route}/${data.DatasetId}`}
           className={`our-btn border-0 text-capitalize ${styles.datasetBtn}`}
         >
           details

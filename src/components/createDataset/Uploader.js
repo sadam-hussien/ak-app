@@ -20,6 +20,10 @@ import "../../styles/createDataset/uploader.css";
 
 import { useDebouncedCallback } from "use-debounce";
 
+import { server_create_dataset_upload } from "../../server/datasets";
+
+import { AlertToast } from "../global";
+
 // Register the plugins
 registerPlugin(
   // FilePondPluginImageExifOrientation,
@@ -28,27 +32,27 @@ registerPlugin(
   FilePondPluginFileEncode
 );
 
-export default function Uploader({ dataCleaning }) {
+export default function Uploader({ dataCleaning, id }) {
   const fileRef = useRef();
   // store
-  const { dataDispatch } = useContext(Store);
+  const { dataDispatch, dataStore } = useContext(Store);
   // state
-  const [file, setFile] = useState([]);
+  const [files, setFile] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   // Debounce callback
   // iam using debounce when you are using the real api you are using server prop instead of these
-  const debounced = useDebouncedCallback((value) => {
-    setLoading(false);
-    // strore files in global store
-    dataDispatch(action_load_files(value));
-    // empty the file
-    setFile([]);
-    if (!dataCleaning) {
-      // go to next step
-      dataDispatch(action_next_step(1));
-    }
-  }, 1500);
+  // const debounced = useDebouncedCallback((value) => {
+  //   setLoading(false);
+  //   // strore files in global store
+  //   dataDispatch(action_load_files(value));
+  //   // empty the file
+  //   setFile([]);
+  //   if (!dataCleaning) {
+  //     // go to next step
+  //     dataDispatch(action_next_step(1));
+  //   }
+  // }, 100);
 
   // label template
   const labelTemplate = `
@@ -115,7 +119,7 @@ export default function Uploader({ dataCleaning }) {
         name={"dataset_files"}
         labelIdle={labelTemplate}
         // imagePreviewHeight={200}
-        files={file}
+        files={files}
         onaddfile={(err, file) => {
           if (err) {
             setError(err);
@@ -124,13 +128,46 @@ export default function Uploader({ dataCleaning }) {
             setError(null);
           }
         }}
-        onupdatefiles={(files) => {
+        onupdatefiles={(items) => {
           // console.log(files);
-          if (files.length) {
+          if (items.length) {
             setLoading(true);
-            setFile(files);
-            debounced(files);
+            setFile(items);
           }
+        }}
+        server={{
+          process: (
+            fieldName,
+            file,
+            metadata,
+            load,
+            error,
+            progress,
+            abort,
+            transfer,
+            options
+          ) => {
+            if (files.length) {
+              files.map((item) => {
+                const formData = new FormData();
+                formData.append("file", item);
+                server_create_dataset_upload({ id, data: formData })
+                  .then((response) => {
+                    dataDispatch(action_load_files(response.data));
+                  })
+                  .then(() => {
+                    setLoading(false);
+                    if (!dataCleaning) {
+                      dataDispatch(action_next_step(1));
+                    }
+                  })
+                  .catch((err) => {
+                    setLoading(false);
+                    AlertToast("error", "please try again later");
+                  });
+              });
+            }
+          },
         }}
       />
       {error && error.main}

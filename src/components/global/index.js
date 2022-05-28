@@ -14,6 +14,8 @@ import Modal from "./Modal";
 
 import SelectField from "./SelectField";
 
+import PlaceholderLoader from "./PlaceholderLoader";
+
 export {
   NormalField,
   Btn,
@@ -25,4 +27,5 @@ export {
   Card,
   Modal,
   SelectField,
+  PlaceholderLoader,
 };

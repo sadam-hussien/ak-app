@@ -4,38 +4,59 @@ import { useParams } from "react-router-dom";
 
 import { action_toggle_modal, Store } from "../store";
 
-import { Head, Modal } from "../components/global";
+import { Head, Modal, PlaceholderLoader } from "../components/global";
 
 import { EditDataset } from "../components/editDataset";
 
 import { modal_add_dataset } from "../constants";
+
+import { useFetcher } from "../hooks";
+
+import { server_get_dataset_item } from "../server/datasets";
 
 import styles from "../styles/dataset/index.module.css";
 
 export default function DatasetDetails() {
   const { id } = useParams();
 
-  const { dataStore, globalDispatch, globalStore } = useContext(Store);
+  const { globalDispatch, globalStore } = useContext(Store);
 
-  // fetch single item
-  const [item, setItem] = useState(null);
+  const { fetchItems: item } = useFetcher({
+    callback: server_get_dataset_item,
+    id: id,
+  });
 
-  useEffect(() => {
-    if (dataStore.files) {
-      const filter = dataStore.datasets.filter(
-        (item) => parseInt(item.id) === parseInt(id)
-      );
-      setItem(...filter);
+  const numberOfClasses = () => {
+    let count = 0;
+    if (item) {
+      item.DataConfig?.files.map((item) => {
+        if (item.tags) {
+          count += item.tags.length;
+        }
+      });
     }
-  }, [id, dataStore.files]);
+    return count;
+  };
+  const numberOfAnnotated = () => {
+    let count = 0;
+    if (item) {
+      item.DataConfig?.files.map((item) => {
+        if (item.tags) {
+          count += 1;
+        }
+      });
+    }
+    return count;
+  };
 
   // loading
   if (!item) {
-    return "loading...";
+    return <PlaceholderLoader />;
   }
+
   return (
     <section className="p-l p-r p-b p-t">
-      <Head title={item.name} />
+      <Head title={item.DatasetName} />
 
       {/* items  */}
       <div className="row g-5 ">
@@ -46,7 +67,7 @@ export default function DatasetDetails() {
               dataset name:
             </h5>
             <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-              {item.name}
+              {item.DatasetName}
             </h6>
           </div>
 
@@ -56,12 +77,7 @@ export default function DatasetDetails() {
               dataset tags:
             </h5>
             <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-              {item.tags &&
-                item.tags.map((tag, index) => (
-                  <span key={index} style={{ textDecoration: "underline" }}>
-                    {tag} {item.tags.length - 1 === index ? "" : ", "}
-                  </span>
-                ))}
+              {item.DatasetTag}
             </h6>
           </div>
 
@@ -74,20 +90,19 @@ export default function DatasetDetails() {
             </h5>
             <div>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-                owner - {item.metadata.owner}
+                owner - {item?.Owner?.UserName}
               </h6>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-                Training/Test/Validation Split - {item?.splitData?.training}/
-                {item?.splitData?.test}/{item?.splitData?.validation}
+                Training/Test/Validation Split - {item.DataSplit}
               </h6>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-                total number of images - {item.metadata.images}
+                total number of images - {item?.DataConfig?.files.length}
               </h6>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-                annotaed images - {item.metadata.a_images}
+                annotaed images - {numberOfAnnotated()}
               </h6>
               <h6 className={`m-0 text-capitalize ${styles.detailsresponse}`}>
-                number of unique classes - {item.metadata.classes}
+                number of unique classes - {numberOfClasses()}
               </h6>
             </div>
           </div>
@@ -114,8 +129,8 @@ export default function DatasetDetails() {
             action_toggle_modal({
               comp: modal_add_dataset,
               id: id,
-              name: item.name,
-              tag: item.tags,
+              name: item.DatasetName,
+              tag: item.DatasetTag,
               item: item,
             })
           )
@@ -127,7 +142,7 @@ export default function DatasetDetails() {
       </button>
 
       {globalStore.modalStatus.isActive && (
-        <Modal title={`edit dataset - ${item.name}`}>
+        <Modal title={`edit dataset - ${item.DatasetName}`}>
           <EditDataset />
         </Modal>
       )}

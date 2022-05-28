@@ -32,7 +32,8 @@ export const dataState = {
   step: "upload",
   files: [],
   annotated: [],
-  datasets: datasets,
+  // datasets: datasets,
+  datasets: null,
   splitData: {
     training: null,
     test: null,

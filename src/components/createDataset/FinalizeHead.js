@@ -33,21 +33,13 @@ export default function FinalizeHead() {
       return count;
     };
     const data = {
-      // Owner: authStore.user.user_id,
-      // DatasetName: dataStore.name || state?.name,
-      // DatasetTag: dataStore.tag.join(","),
-      // DataSplit: `${dataStore.splitData.training}:${dataStore.splitData.validation}:${dataStore.splitData.test}`,
-      // TotalImages: dataStore.files.length,
-      // TotalClasses: totalClasses(),
-      // IsDeleted: false,
-      // DataConfig: null,
-      Owner: 12,
-      DatasetName: "Test5",
-      DatasetTag: "Classification",
-      DataSplit: "12:12:34",
+      Owner: authStore.user.ownerId,
+      DatasetName: dataStore.name || state?.name,
+      DatasetTag: dataStore.tag.join(","),
+      DataSplit: `${dataStore.splitData.training}:${dataStore.splitData.validation}:${dataStore.splitData.test}`,
+      TotalImages: dataStore.files.length,
+      TotalClasses: totalClasses(),
       IsDeleted: false,
-      TotalImages: 1,
-      TotalClasses: 1,
       DataConfig: null,
     };
     setLoading(true);

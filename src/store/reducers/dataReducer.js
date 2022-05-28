@@ -1,4 +1,5 @@
 import {
+  GET_DATASETS,
   BACK_STEP,
   CREATE_DATASET,
   LOAD_FILES,
@@ -15,13 +16,16 @@ import {
 
 export default function dataReducer(state, action) {
   switch (action.type) {
-    case CREATE_DATASET: {
-      const data = {
-        ...action.payload,
-      };
+    case GET_DATASETS: {
       return {
         ...state,
-        ...data,
+        datasets: action.payload,
+      };
+    }
+    case CREATE_DATASET: {
+      return {
+        ...state,
+        createDataset: action.payload,
       };
     }
     case EDIT_DATASET: {
@@ -50,25 +54,14 @@ export default function dataReducer(state, action) {
       };
     }
     case LOAD_FILES: {
-      const handleFiles = action.payload.map((f) => {
-        return {
-          file: f.file,
-          filename: f.filename,
-          id: f.id,
-          fileType: f.fileType,
-          fileSize: f.fileSize,
-          fileExtension: f.fileExtension,
-          filenameWithoutExtension: f.filenameWithoutExtension,
-        };
-      });
       return {
         ...state,
-        files: [...handleFiles, ...state.files],
+        files: [action.payload, ...state.files],
       };
     }
     case REMOVE_FILE: {
-      const id = action.payload;
-      const filterFiles = state.files.filter((file) => file.id !== id);
+      const path = action.payload;
+      const filterFiles = state.files.filter((file) => file.path !== path);
 
       return {
         ...state,
@@ -88,10 +81,10 @@ export default function dataReducer(state, action) {
       };
     }
     case HANDLE_TAGS: {
-      const id = action.payload.id;
-      const findFile = state.files.find((f) => f.id === id);
-      const findFileIndex = state.files.findIndex((f) => f.id === id);
-      const filterFiles = state.files.filter((f) => f.id !== id);
+      const path = action.payload.path;
+      const findFile = state.files.find((f) => f.path === path);
+      const findFileIndex = state.files.findIndex((f) => f.path === path);
+      const filterFiles = state.files.filter((f) => f.path !== path);
       filterFiles.splice(findFileIndex, 0, {
         ...findFile,
         tags: action.payload.tags,
@@ -104,11 +97,11 @@ export default function dataReducer(state, action) {
     case DONE_TAGS: {
       const filterItemsHasTags = state.files.filter((f) => {
         if (f.tags) {
-          const isExist = state.annotated.some((i) => i.id === f.id);
+          const isExist = state.annotated.some((i) => i.path === f.path);
           if (isExist) {
-            const findFile = state.annotated.find((i) => i.id === f.id);
+            const findFile = state.annotated.find((i) => i.path === f.path);
             console.log("find file", findFile);
-            const filterFiles = state.annotated.filter((i) => i.id == f.id);
+            const filterFiles = state.annotated.filter((i) => i.path == f.path);
             return [f, ...filterFiles];
           } else {
             return [f, ...state.annotated];
@@ -167,6 +160,7 @@ export default function dataReducer(state, action) {
           min: null,
           max: null,
         },
+        createDataset: {},
       };
     }
     default: {

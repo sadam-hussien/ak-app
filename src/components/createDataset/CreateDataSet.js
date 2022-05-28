@@ -8,7 +8,9 @@ import { Formik, Form } from "formik";
 
 import * as Yup from "yup";
 
-import { Btn, NormalField, SelectField } from "../global";
+import { AlertToast, Btn, NormalField, SelectField } from "../global";
+
+import { server_create_dataset } from "../../server/datasets";
 
 import styles from "../../styles/crud/index.module.css";
 
@@ -17,26 +19,39 @@ import Styles from "../../styles/global/form.module.css";
 export default function CreateDataSet() {
   const navigate = useNavigate();
   // store
-  const { dataDispatch, globalDispatch } = useContext(Store);
+  const { dataDispatch, globalDispatch, authStore } = useContext(Store);
   // state
   const [loading, setLoading] = useState(false);
 
   const submitForm = (values, actions) => {
     setLoading(true);
-    console.log(values);
-    dataDispatch(
-      action_create_dataset({
-        name: values.name,
-        tag: [values.tags],
-        id: Math.random(),
+    const data = {
+      Owner: authStore.user.ownerId,
+      DatasetName: values.name,
+      DatasetTag: values.tags,
+      DataSplit: "0:0:0",
+      IsDeleted: false,
+      TotalImages: 0,
+      TotalClasses: 0,
+      DataConfig: null,
+    };
+    server_create_dataset(data)
+      .then((response) => {
+        dataDispatch(action_create_dataset(response.data));
+        globalDispatch(action_toggle_modal({ comp: null }));
+        navigate("/create-database", {
+          state: {
+            from: "create",
+            name: values.name,
+            id: response.data.DatasetId,
+          },
+        });
       })
-    );
-    setTimeout(() => {
-      globalDispatch(action_toggle_modal({ comp: null }));
-      navigate("/create-database", {
-        state: { from: "create", name: values.name },
+      .catch((err) => {
+        setLoading(false);
+        actions.setSubmitting(false);
+        AlertToast("error", "error");
       });
-    }, 400);
   };
 
   const schema = Yup.object().shape({
